@@ -2,10 +2,17 @@ const AbstractManager = require("./AbstractManager");
 
 class ProductManager extends AbstractManager {
   constructor() {
+    // Call the constructor of the parent class (AbstractManager)
+    // and pass the table name "product" as configuration
     super({ table: "product" });
   }
 
+  // The C of CRUD - Create operation
+
+  // The Rs of CRUD - Read operations
+
   async read(id) {
+    // Execute the SQL SELECT query to retrieve a specific product by its ID
     const [rows] = await this.database.query(
       `select * from ${this.table} where id = ?`,
       [id]
