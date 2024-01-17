@@ -9,7 +9,7 @@ CREATE TABLE product (
   name VARCHAR(255) NOT NULL,
   brand VARCHAR(255) NOT NULL,
   category ENUM ("hair", "makeup", "hygiene"),
-  sub_cat ENUM ("coloration", "gel", "shampoo", "redlips", "mascara", "nail", "eye_shadow", "perfume", "deo"),
+  sub_cat ENUM ("coloration", "hairspray", "shampoo", "lipstick", "mascara", "nail", "face_powder", "cream"),
   price DECIMAL,
   description TEXT,
   quantity_unitary DECIMAL,
