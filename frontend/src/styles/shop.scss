@@ -1,0 +1,9 @@
+.shop {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: calc(100vh - 100px);
+  h2 {
+    font-size: 50px;
+  }
+}
