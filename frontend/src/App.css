@@ -3,10 +3,3 @@ body {
   min-height: 100vh;
   background-color: antiquewhite;
 }
-nav {
-  height: 100px;
-  display: flex;
-  justify-content: space-around;
-  align-items: center;
-  border-bottom: 1px solid black;
-}

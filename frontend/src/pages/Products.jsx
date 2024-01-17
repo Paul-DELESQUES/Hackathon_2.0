@@ -1,7 +1,11 @@
-import React from "react";
+import "../styles/products.scss";
 
 function Products() {
-  return <div>Products</div>;
+  return (
+    <div className="products">
+      <h1>Products</h1>
+    </div>
+  );
 }
 
 export default Products;
