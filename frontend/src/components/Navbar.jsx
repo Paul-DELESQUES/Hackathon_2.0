@@ -5,9 +5,8 @@ import "../styles/navbar.scss";
 function Navbar() {
   return (
     <nav>
-      <Link to="/">Home</Link>
+      <Link to="/shop">Home</Link>
       <Link to="/products">Products</Link>
-      <Link to="/shop">Shop</Link>
     </nav>
   );
 }
