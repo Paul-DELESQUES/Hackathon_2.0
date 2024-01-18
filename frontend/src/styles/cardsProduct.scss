@@ -54,28 +54,24 @@ body {
     .content {
       padding: 1em;
 
-      .details small {
+      .category small {
         display: block;
         line-height: 24px;
         letter-spacing: 1px;
         font-size: 0.8em;
       }
-      .sizes ul {
-        list-style: none;
+      .quantity-parent {
+        display: flex;
+        justify-content: center;
 
-        .size {
+        .quantity {
           display: inline-block;
-          margin: 0 0.5em;
-          cursor: pointer;
+          margin-top: -0.5em;
           font-weight: 700;
-        }
-
-        .size:hover {
-          color: #ccc;
         }
       }
 
-      .cart {
+      .add-btn {
         background: linear-gradient(90deg, #fb3854 0%, #901026 100%);
         padding: 1em 1.1em;
         display: flex;

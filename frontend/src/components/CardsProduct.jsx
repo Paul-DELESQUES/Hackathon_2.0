@@ -55,22 +55,19 @@ function CardsProduct() {
           <div className="banner">
             <h2>{product.name}</h2>
           </div>
-          <img src={product.image} alt={product.name} />
+          <img src={product.picture} alt={product.name} />
           <div className="content">
-            <div className="details">
-              <h3>Détails Produits</h3>
-              <small>Couleur: rouge</small>
-              <small>durée: 4 semaines</small>
+            <div className="category">
+              <h3>Catégorie</h3>
+              <small>
+                {product.category} {product.sub_cat}
+              </small>
             </div>
-            <div className="sizes">
-              <h3>Sélectionne la quantité</h3>
-              <ul>
-                <li className="size">1</li>
-                <li className="size">2</li>
-                <li className="size">3</li>
-              </ul>
+            <h3>Quantité restante</h3>
+            <div className="quantity-parent">
+              <p className="quantity">{product.quantity_total}</p>
             </div>
-            <button className="cart pop" type="button">
+            <button className="add-btn pop" type="button">
               <span>Ajouter au panier</span>
               <span>{product.price}€</span>
             </button>
