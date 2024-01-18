@@ -1,9 +1,10 @@
 /* eslint-disable react/no-unknown-property */
+import PropTypes from "prop-types";
 import { useEffect, useRef } from "react";
 import { DRACOLoader } from "three/examples/jsm/loaders/DRACOLoader";
 import { GLTFLoader } from "three/examples/jsm/loaders/GLTFLoader";
 
-function ShopModel() {
+function ShopModel({ onClick }) {
   const shopRef = useRef();
 
   useEffect(() => {
@@ -24,12 +25,24 @@ function ShopModel() {
       }
     });
   }, []);
-
+  const handleModelClick = () => {
+    if (onClick) {
+      onClick();
+    }
+  };
   return (
-    <group ref={shopRef} scale={2} position={[-2.5, -3, 0.5]}>
+    <group
+      ref={shopRef}
+      scale={2}
+      position={[-2.5, -3, 0.5]}
+      onClick={handleModelClick}
+    >
       <hemisphereLight intensity={2} groundColor="black" />
     </group>
   );
 }
 
+ShopModel.propTypes = {
+  onClick: PropTypes.func.isRequired,
+};
 export default ShopModel;
