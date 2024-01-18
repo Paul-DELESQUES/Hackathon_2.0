@@ -6,4 +6,46 @@
   h2 {
     font-size: 50px;
   }
+  &::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0, 0, 0, 0.7);
+    pointer-events: none;
+  }
+}
+
+.highlight-point {
+  position: absolute;
+  width: 20px;
+  height: 20px;
+  background-color: white;
+  border-radius: 50%;
+  animation: ondulation 2s infinite;
+}
+
+@keyframes ondulation {
+  0%,
+  100% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.2);
+  }
+}
+
+.shop.no-opacity::after {
+  background: transparent;
+}
+
+#restartTuto {
+  width: 50px;
+  height: auto;
+  z-index: 999;
+  position: fixed;
+  top: 20px;
+  right: 20px;
 }
