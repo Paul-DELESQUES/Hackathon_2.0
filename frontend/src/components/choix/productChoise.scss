@@ -10,4 +10,16 @@
   background: transparent;
   border: 1px solid green;
   margin: 0.2rem;
+  font-size: 0.88rem;
+}
+
+.productmakeup {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  .lolo {
+    width: 150px;
+    height: 150px;
+  }
 }

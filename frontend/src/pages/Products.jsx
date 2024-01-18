@@ -1,11 +1,7 @@
-import "../styles/products.scss";
+import CardsProduct from "../components/CardsProduct";
 
 function Products() {
-  return (
-    <div className="products">
-      <h1>Products</h1>
-    </div>
-  );
+  return <CardsProduct />;
 }
 
 export default Products;

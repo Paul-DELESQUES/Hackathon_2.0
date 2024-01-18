@@ -1,8 +1,9 @@
 /* eslint-disable react/no-unknown-property */
+import PropTypes from "prop-types";
 import { useEffect, useRef } from "react";
 import { GLTFLoader } from "three/examples/jsm/loaders/GLTFLoader";
 
-function TvCanvas() {
+function TvCanvas({ onClick }) {
   const tvRef = useRef();
 
   useEffect(() => {
@@ -18,7 +19,12 @@ function TvCanvas() {
   }, []);
 
   return (
-    <group ref={tvRef} position={[1.5, -0.2, -3.2]} scale={0.045}>
+    <group
+      ref={tvRef}
+      position={[1.5, -0.2, -3.2]}
+      scale={0.045}
+      onClick={onClick}
+    >
       <hemisphereLight intensity={2} groundColor="black" />
       <spotLight
         position={[0, 0, 0]}
@@ -31,5 +37,9 @@ function TvCanvas() {
     </group>
   );
 }
+
+TvCanvas.propTypes = {
+  onClick: PropTypes.func.isRequired,
+};
 
 export default TvCanvas;
