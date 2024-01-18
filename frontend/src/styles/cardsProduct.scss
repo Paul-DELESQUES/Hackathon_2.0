@@ -9,11 +9,10 @@ body {
 
 .cards {
   display: flex;
-  justify-content: space-between;
+  justify-content: space-around;
   align-items: center;
   flex-wrap: wrap;
   padding: 1em;
-  max-width: 1100px;
 
   .card {
     width: 17em;
@@ -43,6 +42,13 @@ body {
       top: -4em;
       right: -6em;
       filter: drop-shadow(15px 10px 25px rgba(0, 0, 0, 0.5));
+
+      &.foundation {
+        width: 10em;
+        top: 7em;
+        right: -3em;
+        filter: drop-shadow(15px 10px 25px rgba(0, 0, 0, 0.5));
+      }
     }
 
     .content {
