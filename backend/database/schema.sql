@@ -1,4 +1,3 @@
--- Active: 1698236999326@@127.0.0.1@3306@loreal
 -- SQLBook: Code
 DROP DATABASE IF EXISTS loreal;
 CREATE DATABASE loreal;

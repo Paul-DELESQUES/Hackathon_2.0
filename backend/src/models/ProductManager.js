@@ -1,6 +1,6 @@
 const AbstractManager = require("./AbstractManager");
 
-class productManager extends AbstractManager {
+class ProductManager extends AbstractManager {
   constructor() {
     // Call the constructor of the parent class (AbstractManager)
     // and pass the table name "product" as configuration
@@ -8,17 +8,6 @@ class productManager extends AbstractManager {
   }
 
   // The C of CRUD - Create operation
-
-  async create(product) {
-    // Execute the SQL INSERT query to add a new product to the "product" table
-    const [result] = await this.database.query(
-      `insert into ${this.table} (title) values (?)`,
-      [product.title]
-    );
-
-    // Return the ID of the newly inserted product
-    return result.insertId;
-  }
 
   // The Rs of CRUD - Read operations
 
@@ -56,4 +45,4 @@ class productManager extends AbstractManager {
   // }
 }
 
-module.exports = productManager;
+module.exports = ProductManager;
