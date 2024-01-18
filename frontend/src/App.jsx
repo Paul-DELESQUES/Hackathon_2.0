@@ -5,13 +5,11 @@ import config from "./components/Config";
 import ActionProvider from "./components/ActionProvider";
 import messageParser from "./components/MessageParser";
 import "./App.css";
-import Navbar from "./components/Navbar";
 
 function App() {
   return (
     <header className="App-header">
       <div className="App">
-        <Navbar />
         <Outlet />
         <Chatbot
           config={config}

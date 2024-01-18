@@ -2,8 +2,10 @@
 import { Suspense } from "react";
 import { Canvas } from "@react-three/fiber";
 import { OrbitControls } from "@react-three/drei";
-import ShopCanvas from "../components/ShopModel";
+import ShopCanvas from "../components/canvas/ShopModel";
+import TvCanvas from "../components/canvas/TvCanvas";
 import "../styles/shop.scss";
+import TabletCanvas from "../components/canvas/TabletCanvas";
 
 function Shop() {
   return (
@@ -19,8 +21,9 @@ function Shop() {
       >
         <Suspense fallback={null}>
           <ShopCanvas />
+          <TvCanvas />
+          <TabletCanvas />
           <ambientLight intensity={2.5} />
-          {/* <pointLight position={[0, 0, 0]} intensity={5} /> */}
           <OrbitControls enableZoom={false} />
         </Suspense>
       </Canvas>
