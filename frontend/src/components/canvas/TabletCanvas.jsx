@@ -1,8 +1,9 @@
 /* eslint-disable react/no-unknown-property */
+import PropTypes from "prop-types";
 import { useEffect, useRef } from "react";
 import { GLTFLoader } from "three/examples/jsm/loaders/GLTFLoader";
 
-function TabletCanvas() {
+function TabletCanvas({ onClick }) {
   const tvRef = useRef();
 
   useEffect(() => {
@@ -23,6 +24,7 @@ function TabletCanvas() {
       position={[2.65, -1.54, 3.4]}
       scale={0.0015}
       rotation={[0, 1.58, 0]}
+      onClick={onClick}
     >
       <hemisphereLight intensity={2} groundColor="black" />
       <spotLight
@@ -36,5 +38,9 @@ function TabletCanvas() {
     </group>
   );
 }
+
+TabletCanvas.propTypes = {
+  onClick: PropTypes.func.isRequired,
+};
 
 export default TabletCanvas;
