@@ -4,8 +4,8 @@ import { Canvas } from "@react-three/fiber";
 import { OrbitControls } from "@react-three/drei";
 import ShopCanvas from "../components/canvas/ShopModel";
 import TvCanvas from "../components/canvas/TvCanvas";
-import "../styles/shop.scss";
 import TabletCanvas from "../components/canvas/TabletCanvas";
+import "../styles/shop.scss";
 
 function Shop() {
   return (
