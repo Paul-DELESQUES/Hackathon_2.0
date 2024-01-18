@@ -9,7 +9,6 @@ const browse = async (req, res, next) => {
 
     // Respond with the products in JSON format
     res.json(products);
-
   } catch (err) {
     // Pass any errors to the error-handling middleware
     next(err);
