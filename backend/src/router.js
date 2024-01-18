@@ -6,7 +6,7 @@ const router = express.Router();
 // Define Your API Routes Here
 /* ************************************************************************* */
 
-// Import itemControllers module for handling item-related operations
+// Import productControllers module for handling product-related operations
 const productControllers = require("./controllers/productControllers");
 
 // Route to get a list of products
@@ -14,6 +14,9 @@ router.get("/product", productControllers.browse);
 
 // Route to get a specific product by ID
 router.get("/product/:id", productControllers.read);
+
+// Route to add a new product
+router.post("/products", productControllers.add);
 
 /* ************************************************************************* */
 
