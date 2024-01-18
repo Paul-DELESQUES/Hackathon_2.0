@@ -24,17 +24,6 @@
   height: 20px;
   background-color: white;
   border-radius: 50%;
-  animation: ondulation 2s infinite;
-}
-
-@keyframes ondulation {
-  0%,
-  100% {
-    transform: scale(1);
-  }
-  50% {
-    transform: scale(1.2);
-  }
 }
 
 .shop.no-opacity::after {
@@ -46,6 +35,12 @@
   height: auto;
   z-index: 999;
   position: fixed;
+  cursor: pointer;
   top: 20px;
   right: 20px;
+  border-radius: 50%;
+  background: linear-gradient(145deg, #dbd2c7, #b9b0a7);
+  box-shadow:
+    20px 20px 60px #aea79e,
+    -20px -20px 60px #ece1d6;
 }
