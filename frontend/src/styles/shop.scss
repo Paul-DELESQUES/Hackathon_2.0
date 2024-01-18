@@ -41,9 +41,11 @@
   background: transparent;
 }
 
-.tutorial-completed-message {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
+#restartTuto {
+  width: 50px;
+  height: auto;
+  z-index: 999;
+  position: fixed;
+  top: 20px;
+  right: 20px;
 }

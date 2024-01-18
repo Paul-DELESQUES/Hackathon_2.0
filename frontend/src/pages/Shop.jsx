@@ -29,6 +29,12 @@ function Shop() {
 
   const handleTvClick = () => {
     if (tutorialStep === 3) {
+      setTutorialStep(4);
+    }
+  };
+
+  const handleFinishTuto = () => {
+    if (tutorialStep === 4) {
       localStorage.setItem("tutorialCompleted", "true");
       setTutorialCompleted(true);
       setShowTutorialButton(true);
@@ -36,7 +42,8 @@ function Shop() {
   };
 
   const handleRestartTutorial = () => {
-    setTutorialStep(1);
+    console.info("Restarting Tutorial");
+    setTutorialStep(2);
     setTutorialCompleted(false);
     setShowTutorialButton(false);
     localStorage.removeItem("tutorialCompleted");
@@ -45,19 +52,27 @@ function Shop() {
   useEffect(() => {
     const completed = localStorage.getItem("tutorialCompleted");
     if (completed === "true") {
-      setTutorialCompleted(true);
+      console.info("Tutorial Completed");
+      setTutorialCompleted(false);
+      setTutorialStep(2);
     }
   }, []);
 
   return (
-    <section className={`shop ${tutorialCompleted ? "no-opacity" : ""}`}>
-      <Tutorial step={tutorialStep} />
-      {tutorialCompleted && (
-        <div className="tutorial-completed-message">
-          <p>Tutoriel terminé, c'est à vous !</p>
+    <section
+      className={`shop ${
+        (tutorialCompleted && tutorialStep !== -1) || tutorialStep === -1
+          ? "no-opacity"
+          : ""
+      }`}
+    >
+      <Tutorial step={tutorialStep} tutorialCompleted={tutorialCompleted} />
+      {tutorialCompleted && tutorialStep === 4 && (
+        <div>
           {showTutorialButton && (
             <img
               src={tutoButton}
+              id="restartTuto"
               alt="Bouton Relancer le tutoriel"
               onClick={handleRestartTutorial}
               aria-hidden="true"
@@ -75,7 +90,7 @@ function Shop() {
         }}
       >
         <Suspense fallback={null}>
-          <ShopCanvas />
+          <ShopCanvas onClick={handleFinishTuto} />
           <TvCanvas onClick={handleTvClick} />
           <TabletCanvas onClick={handleTabletClick} />
           {/* <ProductCanvas onClick={handleProductClick} /> */}

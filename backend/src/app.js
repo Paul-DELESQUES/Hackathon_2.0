@@ -1,7 +1,38 @@
-const cors = require("cors");
+import cors from "cors";
 // Load the express module to create a web application
 
-const express = require("express");
+import express, { json } from "express";
+// app.use(express.urlencoded());
+// app.use(express.text());
+// app.use(express.raw());
+
+/* ************************************************************************* */
+
+// Cookies: Why and how to use the `cookie-parser` module?
+
+// Cookies are small pieces of data stored in the client's browser. They are often used to store user-specific information or session data.
+
+// The `cookie-parser` module allows us to parse and manage cookies in our Express application. It parses the `Cookie` header in incoming requests and populates `req.cookies` with an object containing the cookies.
+
+// To use `cookie-parser`, make sure it is installed in `backend/package.json` (you may need to install it separately):
+// npm install cookie-parser
+
+// Then, require the module and use it as middleware in your Express application:
+
+// const cookieParser = require("cookie-parser");
+// app.use(cookieParser());
+
+// Once `cookie-parser` is set up, you can read and set cookies in your routes.
+// For example, to set a cookie named "username" with the value "john":
+// res.cookie("username", "john");
+
+// To read the value of a cookie named "username":
+// const username = req.cookies.username;
+
+/* ************************************************************************* */
+
+// Import the API routes from the router module
+import router from "./router";
 
 const app = express();
 
@@ -51,38 +82,7 @@ app.use(
 
 // Uncomment one or more of these options depending on the format of the data sent by your client:
 
-app.use(express.json());
-// app.use(express.urlencoded());
-// app.use(express.text());
-// app.use(express.raw());
-
-/* ************************************************************************* */
-
-// Cookies: Why and how to use the `cookie-parser` module?
-
-// Cookies are small pieces of data stored in the client's browser. They are often used to store user-specific information or session data.
-
-// The `cookie-parser` module allows us to parse and manage cookies in our Express application. It parses the `Cookie` header in incoming requests and populates `req.cookies` with an object containing the cookies.
-
-// To use `cookie-parser`, make sure it is installed in `backend/package.json` (you may need to install it separately):
-// npm install cookie-parser
-
-// Then, require the module and use it as middleware in your Express application:
-
-// const cookieParser = require("cookie-parser");
-// app.use(cookieParser());
-
-// Once `cookie-parser` is set up, you can read and set cookies in your routes.
-// For example, to set a cookie named "username" with the value "john":
-// res.cookie("username", "john");
-
-// To read the value of a cookie named "username":
-// const username = req.cookies.username;
-
-/* ************************************************************************* */
-
-// Import the API routes from the router module
-const router = require("./router");
+app.use(json());
 
 // Mount the API routes under the "/api" endpoint
 app.use("/api", router);
@@ -140,4 +140,4 @@ app.use(logErrors);
 
 /* ************************************************************************* */
 
-module.exports = app;
+export default app;
