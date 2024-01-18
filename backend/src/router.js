@@ -10,10 +10,10 @@ const router = express.Router();
 const productControllers = require("./controllers/productControllers");
 
 // Route to get a list of products
-router.get("/products", productControllers.browse);
+router.get("/product", productControllers.browse);
 
 // Route to get a specific product by ID
-router.get("/products/:id", productControllers.read);
+router.get("/product/:id", productControllers.read);
 
 /* ************************************************************************* */
 
