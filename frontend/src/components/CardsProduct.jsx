@@ -9,7 +9,7 @@ function CardsProduct() {
 
   useEffect(() => {
     axios
-      .get(`${import.meta.env.VITE_BACKEND_URL}/api/products`)
+      .get(`${import.meta.env.VITE_BACKEND_URL}/api/product`)
       .then((response) => {
         const result = response.data;
         setProducts(result);
@@ -49,32 +49,38 @@ function CardsProduct() {
   }, []);
 
   return (
-    <section className="cards">
-      {products.map((product) => (
-        <div key={product.id} className="card js-tilt" data-tilt>
-          <div className="banner">
-            <h2>{product.name}</h2>
-          </div>
-          <img src={product.picture} alt={product.name} />
-          <div className="content">
-            <div className="category">
-              <h3>Catégorie</h3>
-              <small>
-                {product.category} {product.sub_cat}
-              </small>
+    <>
+      <form>
+        <input type="text" placeholder="Rechercher un produit..." />
+        <button type="button">Rechercher</button>
+      </form>
+      <section className="cards">
+        {products.map((product) => (
+          <div key={product.id} className="card js-tilt" data-tilt>
+            <div className="banner">
+              <h2>{product.name}</h2>
             </div>
-            <h3>Quantité restante</h3>
-            <div className="quantity-parent">
-              <p className="quantity">{product.quantity_total}</p>
+            <img src={product.picture} alt={product.name} />
+            <div className="content">
+              <div className="category">
+                <h3>Catégorie</h3>
+                <small>
+                  {product.category} {product.sub_cat}
+                </small>
+              </div>
+              <h3>Quantité restante</h3>
+              <div className="quantity-parent">
+                <p className="quantity">{product.quantity_total}</p>
+              </div>
+              <button className="add-btn pop" type="button">
+                <span>Ajouter au panier</span>
+                <span>{product.price}€</span>
+              </button>
             </div>
-            <button className="add-btn pop" type="button">
-              <span>Ajouter au panier</span>
-              <span>{product.price}€</span>
-            </button>
           </div>
-        </div>
-      ))}
-    </section>
+        ))}
+      </section>
+    </>
   );
 }
 

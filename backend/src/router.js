@@ -15,8 +15,10 @@ router.get("/product", productControllers.browse);
 // Route to get a specific product by ID
 router.get("/product/:id", productControllers.read);
 
+/*
 // Route to add a new product
 router.post("/products", productControllers.add);
+*/
 
 /* ************************************************************************* */
 
