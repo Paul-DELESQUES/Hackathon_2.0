@@ -1,29 +1,51 @@
-class ActionProvider {
-  constructor(
-    createChatBotMessage,
-    setStateFunc,
-    createClientMessage,
-    stateRef,
-    createCustomMessage
-  ) {
-    this.createChatBotMessage = createChatBotMessage;
-    this.setState = setStateFunc;
-    this.createClientMessage = createClientMessage;
-    this.stateRef = stateRef;
-    this.createCustomMessage = createCustomMessage;
-  }
+/*eslint-disable */
+import React from "react";
 
-  greet() {
-    const greetingMessage = this.createChatBotMessage("Hi, friend.");
-    this.updateChatbotState(greetingMessage);
-  }
-
-  updateChatbotState(message) {
-    this.setState((prevState) => ({
-      ...prevState,
-      messages: [...prevState.messages, message],
+function ActionProvider({ createChatBotMessage, setState, children }) {
+  const updateState = (message) => {
+    setState((prev) => ({
+      ...prev,
+      message: [...prev.messages, message],
     }));
-  }
+  };
+
+  const startBtn = () => {
+    const message = createChatBotMessage("Quelle est votre demande ?");
+    updateState(message);
+  };
+
+  const handleHello = () => {
+    const botMessage = createChatBotMessage("Hello. Nice to meet you.");
+
+    setState((prev) => ({
+      ...prev,
+      messages: [...prev.messages, botMessage],
+    }));
+  };
+
+  const handleDog = () => {
+    const botMessage = createChatBotMessage(
+      "Here's a nice dog picture for you!",
+      {
+        widget: "dogPicture",
+      }
+    );
+
+    setState((prev) => ({
+      ...prev,
+      messages: [...prev.messages, botMessage],
+    }));
+  };
+
+  return (
+    <div>
+      {React.Children.map(children, (child) => {
+        return React.cloneElement(child, {
+          actions: { startBtn, handleHello, handleDog },
+        });
+      })}
+    </div>
+  );
 }
 
 export default ActionProvider;

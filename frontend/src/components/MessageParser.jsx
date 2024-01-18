@@ -1,15 +1,26 @@
-class MessageParser {
-  constructor(actionProvider) {
-    this.actionProvider = actionProvider;
-  }
+/*eslint-disable */
+import React from "react";
 
-  parse(message) {
-    const lowerCaseMessage = message.toLowerCase();
-
-    if (lowerCaseMessage.includes("hello")) {
-      this.actionProvider.greet();
+function MessageParser({ children, actions }) {
+  const parse = (message) => {
+    if (message.includes("hello")) {
+      actions.handleHello();
     }
-  }
+    if (message.includes("lipstic") || message.includes("parfum")) {
+      actions.handleDog();
+    }
+  };
+
+  return (
+    <div>
+      {React.Children.map(children, (child) => {
+        return React.cloneElement(child, {
+          parse: parse,
+          actions: {},
+        });
+      })}
+    </div>
+  );
 }
 
 export default MessageParser;
