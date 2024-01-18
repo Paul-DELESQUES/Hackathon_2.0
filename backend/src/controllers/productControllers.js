@@ -6,7 +6,6 @@ const browse = async (req, res, next) => {
   try {
     // Fetch all products from the database
     const products = await tables.product.readAll();
-
     // Respond with the products in JSON format
     res.json(products);
   } catch (err) {
