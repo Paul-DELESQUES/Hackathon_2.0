@@ -1,11 +1,13 @@
+/*eslint-disable */
 import { createChatBotMessage } from "react-chatbot-kit";
 import ProductChoise from "./choix/ProductChoise";
+import ChatStart from "./ChatStart";
 
+const botName = "LOr&Al";
 const config = {
-  botName: "Lor&Al",
   initialMessages: [
-    createChatBotMessage("Bonjour, je suis votre assistant shop l'Oréal", {
-      widget: "productOptions",
+    createChatBotMessage(`Bonjour! je suis ${botName}`, {
+      widget: "Let Start",
     }),
   ],
   customStyles: {
@@ -13,13 +15,22 @@ const config = {
       backgroundColor: "#376B7E",
     },
     chatButton: {
-      backgroundColor: "#376B7E",
+      backgroundColor: "#5ccc9d",
+    },
+
+    widget: {
+      width: "3px",
     },
   },
+
   widgets: [
     {
-      widgetName: "productOptions",
-      widgetFunc: (props) => <ProductChoise props={props} />,
+      widgetName: "Let Start",
+      widgetFunc: (props) => <ChatStart {...props} />,
+    },
+    {
+      widgetName: "dogPicture",
+      widgetFunc: (props) => <ProductChoise {...props} />,
     },
   ],
 };

@@ -9,6 +9,7 @@ const browse = async (req, res, next) => {
 
     // Respond with the products in JSON format
     res.json(products);
+
   } catch (err) {
     // Pass any errors to the error-handling middleware
     next(err);
@@ -23,6 +24,7 @@ const read = async (req, res, next) => {
 
     // If the product is not found, respond with HTTP 404 (Not Found)
     // Otherwise, respond with the product in JSON format
+
     if (product == null) {
       res.sendStatus(404);
     } else {
