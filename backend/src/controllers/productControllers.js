@@ -4,7 +4,6 @@ const tables = require("../tables");
 // The B of BREAD - Browse (Read All) operation
 const browse = async (req, res, next) => {
   try {
-
     // Fetch all products from the database
     const products = await tables.product.readAll();
 
@@ -19,7 +18,6 @@ const browse = async (req, res, next) => {
 // The R of BREAD - Read operation
 const read = async (req, res, next) => {
   try {
-
     // Fetch a specific product from the database based on the provided ID
     const product = await tables.product.read(req.params.id);
 
