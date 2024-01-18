@@ -2,11 +2,11 @@
 import { Suspense, useState, useEffect } from "react";
 import { Canvas } from "@react-three/fiber";
 import { OrbitControls } from "@react-three/drei";
+import Cookies from "js-cookie"; // Importez la bibliothèque "js-cookie" ici
 import ShopCanvas from "../components/canvas/ShopModel";
 import TvCanvas from "../components/canvas/TvCanvas";
 import TabletCanvas from "../components/canvas/TabletCanvas";
 import Tutorial from "../components/tutorial/Tutorial";
-// import ProductCanvas from "../components/canvas/ProductCanvas";
 import "../styles/shop.scss";
 import tutoButton from "../../public/tuto.png";
 
@@ -14,12 +14,6 @@ function Shop() {
   const [tutorialStep, setTutorialStep] = useState(2);
   const [tutorialCompleted, setTutorialCompleted] = useState(false);
   const [showTutorialButton, setShowTutorialButton] = useState(false);
-
-  // const handleProductClick = () => {
-  //   if (tutorialStep === 1) {
-  //     setTutorialStep(2);
-  //   }
-  // };
 
   const handleTabletClick = () => {
     if (tutorialStep === 2) {
@@ -35,26 +29,26 @@ function Shop() {
 
   const handleFinishTuto = () => {
     if (tutorialStep === 4) {
-      localStorage.setItem("tutorialCompleted", "true");
+      Cookies.set("tutorialCompleted", "true");
       setTutorialCompleted(true);
       setShowTutorialButton(true);
     }
   };
 
   const handleRestartTutorial = () => {
-    console.info("Restarting Tutorial");
     setTutorialStep(2);
     setTutorialCompleted(false);
     setShowTutorialButton(false);
-    localStorage.removeItem("tutorialCompleted");
+    Cookies.remove("tutorialCompleted");
+    Cookies.set("showTutorialButton", "true"); // Stockez "showTutorialButton" dans un cookie
   };
 
   useEffect(() => {
-    const completed = localStorage.getItem("tutorialCompleted");
+    const completed = Cookies.get("tutorialCompleted");
     if (completed === "true") {
-      console.info("Tutorial Completed");
-      setTutorialCompleted(false);
-      setTutorialStep(2);
+      setTutorialCompleted(true);
+      setShowTutorialButton(true);
+      setTutorialStep(4);
     }
   }, []);
 
@@ -76,6 +70,9 @@ function Shop() {
               alt="Bouton Relancer le tutoriel"
               onClick={handleRestartTutorial}
               aria-hidden="true"
+              title="Relancer le tutoriel"
+              data-toggle="tooltip"
+              data-placement="top"
             />
           )}
         </div>
@@ -93,7 +90,6 @@ function Shop() {
           <ShopCanvas onClick={handleFinishTuto} />
           <TvCanvas onClick={handleTvClick} />
           <TabletCanvas onClick={handleTabletClick} />
-          {/* <ProductCanvas onClick={handleProductClick} /> */}
           <ambientLight intensity={2.5} />
           <OrbitControls enableZoom={false} />
         </Suspense>
