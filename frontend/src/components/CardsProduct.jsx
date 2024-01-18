@@ -1,8 +1,25 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
+import axios from "axios";
 import VanillaTilt from "vanilla-tilt";
 import "../styles/cardsProduct.scss";
 
 function CardsProduct() {
+  const [products, setProducts] = useState([]);
+  console.info(products);
+
+  useEffect(() => {
+    axios
+      .get(`${import.meta.env.VITE_BACKEND_URL}/api/products`)
+      .then((response) => {
+        const result = response.data;
+        setProducts(result);
+        console.info(result);
+      })
+      .catch((error) => {
+        console.error("Erreur de la récupération des produits:", error);
+      });
+  }, []);
+
   useEffect(() => {
     VanillaTilt.init(document.querySelectorAll(".js-tilt"), {
       max: 25,
@@ -30,133 +47,33 @@ function CardsProduct() {
       });
     };
   }, []);
+
   return (
     <section className="cards">
-      <div className="card js-tilt" data-tilt>
-        <div className="banner">
-          <h2>Rouge à Lèvre</h2>
-        </div>
-        <img src="" alt="Rouge à lèvre" />
-        <div className="content">
-          <div className="details">
-            <h3>Détails Produits</h3>
-            <small>Couleur: rouge</small>
-            <small>durée: 4 semaines</small>
+      {products.map((product) => (
+        <div key={product.id} className="card js-tilt" data-tilt>
+          <div className="banner">
+            <h2>{product.name}</h2>
           </div>
-          <div className="sizes">
-            <h3>Sélectionne la quantité</h3>
-            <ul>
-              <li className="size">1</li>
-              <li className="size">2</li>
-              <li className="size">3</li>
-            </ul>
+          <img src={product.picture} alt={product.name} />
+          <div className="content">
+            <div className="category">
+              <h3>Catégorie</h3>
+              <small>
+                {product.category} {product.sub_cat}
+              </small>
+            </div>
+            <h3>Quantité restante</h3>
+            <div className="quantity-parent">
+              <p className="quantity">{product.quantity_total}</p>
+            </div>
+            <button className="add-btn pop" type="button">
+              <span>Ajouter au panier</span>
+              <span>{product.price}€</span>
+            </button>
           </div>
-          <button className="cart pop" type="button">
-            <span>Ajouter au panier</span>
-            <span>29.99€</span>
-          </button>
         </div>
-      </div>
-      <div className="card js-tilt" data-tilt>
-        <div className="banner">
-          <h2>Fond de teint en Poudre</h2>
-        </div>
-        <img src="" alt="Fond de teint en Poudre" className="foundation" />
-        <div className="content">
-          <div className="details">
-            <h3>Détails Produits</h3>
-            <small>Couleur: brun</small>
-            <small>durée: 8 semaines</small>
-          </div>
-          <div className="sizes">
-            <h3>Sélectionne la quantité</h3>
-            <ul>
-              <li className="size">1</li>
-              <li className="size">2</li>
-              <li className="size">3</li>
-            </ul>
-          </div>
-          <button className="cart pop" type="button">
-            <span>Ajouter au panier</span>
-            <span>29.99€</span>
-          </button>
-        </div>
-      </div>
-      <div className="card js-tilt" data-tilt>
-        <div className="banner">
-          <h2>Fond de teint en Poudre</h2>
-        </div>
-        <img src="" alt="Fond de teint en Poudre" className="foundation" />
-        <div className="content">
-          <div className="details">
-            <h3>Détails Produits</h3>
-            <small>Couleur: brun</small>
-            <small>durée: 8 semaines</small>
-          </div>
-          <div className="sizes">
-            <h3>Sélectionne la quantité</h3>
-            <ul>
-              <li className="size">1</li>
-              <li className="size">2</li>
-              <li className="size">3</li>
-            </ul>
-          </div>
-          <button className="cart pop" type="button">
-            <span>Ajouter au panier</span>
-            <span>29.99€</span>
-          </button>
-        </div>
-      </div>
-      <div className="card js-tilt" data-tilt>
-        <div className="banner">
-          <h2>Fond de teint en Poudre</h2>
-        </div>
-        <img src="" alt="Fond de teint en Poudre" className="foundation" />
-        <div className="content">
-          <div className="details">
-            <h3>Détails Produits</h3>
-            <small>Couleur: brun</small>
-            <small>durée: 8 semaines</small>
-          </div>
-          <div className="sizes">
-            <h3>Sélectionne la quantité</h3>
-            <ul>
-              <li className="size">1</li>
-              <li className="size">2</li>
-              <li className="size">3</li>
-            </ul>
-          </div>
-          <button className="cart pop" type="button">
-            <span>Ajouter au panier</span>
-            <span>29.99€</span>
-          </button>
-        </div>
-      </div>
-      <div className="card js-tilt" data-tilt>
-        <div className="banner">
-          <h2>Fond de teint en Poudre</h2>
-        </div>
-        <img src="" alt="Fond de teint en Poudre" className="foundation" />
-        <div className="content">
-          <div className="details">
-            <h3>Détails Produits</h3>
-            <small>Couleur: brun</small>
-            <small>durée: 8 semaines</small>
-          </div>
-          <div className="sizes">
-            <h3>Sélectionne la quantité</h3>
-            <ul>
-              <li className="size">1</li>
-              <li className="size">2</li>
-              <li className="size">3</li>
-            </ul>
-          </div>
-          <button className="cart pop" type="button">
-            <span>Ajouter au panier</span>
-            <span>29.99€</span>
-          </button>
-        </div>
-      </div>
+      ))}
     </section>
   );
 }
