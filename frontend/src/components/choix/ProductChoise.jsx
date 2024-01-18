@@ -1,42 +1,22 @@
-import React from "react";
-import "./productChoise.scss";
+/*eslint-disable */
+import React, { useEffect, useState } from "react";
 
 function ProductChoise() {
-  const options = [
-    {
-      text: "Parfum",
-      handler: () => {},
-      id: 1,
-    },
-    {
-      text: "carton",
-      handler: () => {},
-      id: 2,
-    },
-    {
-      text: "rouge à lèvre",
-      handler: () => {},
-      id: 3,
-    },
-    {
-      text: "lèvre",
-      handler: () => {},
-      id: 4,
-    },
-  ];
+  const [imageUrl, setImageUrl] = useState("");
 
-  const optionsMarkup = options.map((option) => (
-    <button
-      type="button"
-      className="learning-option-button"
-      key={option.id}
-      onClick={option.handler}
-    >
-      {" "}
-      {option.text}{" "}
-    </button>
-  ));
-  return <div className="learning-options-container">{optionsMarkup}</div>;
+  useEffect(() => {
+    fetch("https://dog.ceo/api/breeds/image/random")
+      .then((res) => res.json())
+      .then((data) => {
+        setImageUrl(data.message);
+      });
+  }, []);
+
+  return (
+    <div>
+      <img src={imageUrl} alt="a dog" />
+    </div>
+  );
 }
 
 export default ProductChoise;
