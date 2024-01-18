@@ -10,12 +10,12 @@ function ActionProvider({ createChatBotMessage, setState, children }) {
   };
 
   const startBtn = () => {
-    const message = createChatBotMessage("Quelle est votre demande ?");
+    const message = createChatBotMessage("Que recherchez-vous ?");
     updateState(message);
   };
 
   const handleHello = () => {
-    const botMessage = createChatBotMessage("Hello. Nice to meet you.");
+    const botMessage = createChatBotMessage("Bonjour. Que voulez-vous ?");
 
     setState((prev) => ({
       ...prev,
@@ -23,11 +23,11 @@ function ActionProvider({ createChatBotMessage, setState, children }) {
     }));
   };
 
-  const handleDog = () => {
+  const handleMakeup = () => {
     const botMessage = createChatBotMessage(
-      "Here's a nice dog picture for you!",
+      "Voici une panoplie de maquillage qui pourrait vous intéresser!",
       {
-        widget: "dogPicture",
+        widget: "makeUp",
       }
     );
 
@@ -37,11 +37,35 @@ function ActionProvider({ createChatBotMessage, setState, children }) {
     }));
   };
 
+
+  const handleLipstick = () => {
+    const botMessage = createChatBotMessage(
+      "Voici le rouge à lèvre de couleur violet qui pourrait vous intéresser!",
+      {
+        widget: "lipStick",
+      }
+    );
+
+    setState((prev) => ({
+      ...prev,
+      messages: [...prev.messages, botMessage],
+    }));
+  };
+
+    const handleNothing = () => {
+      const botMessage = createChatBotMessage("Really, bro ?");
+
+      setState((prev) => ({
+        ...prev,
+        messages: [...prev.messages, botMessage],
+      }));
+    };
+
   return (
     <div>
       {React.Children.map(children, (child) => {
         return React.cloneElement(child, {
-          actions: { startBtn, handleHello, handleDog },
+          actions: { startBtn, handleHello, handleMakeup, handleLipstick, handleNothing },
         });
       })}
     </div>
