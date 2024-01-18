@@ -1,0 +1,45 @@
+.details-section {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  grid-template-rows: repeat(2, 1fr);
+
+  img {
+    margin: auto;
+  }
+
+  .details-parent-div {
+    h1 {
+      text-align: center;
+      width: 75%;
+    }
+
+    h2 {
+      margin-top: 2em;
+    }
+
+    p {
+      max-width: 60ch;
+      line-height: 1.5;
+    }
+
+    .grid-details-category {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      grid-template-rows: repeat(2, 1fr);
+    }
+
+    .details-btn {
+      background: linear-gradient(145deg, #dbd2c7, #b9b0a7);
+      width: 70%;
+      height: 6vh;
+      border-radius: 2em;
+      border: none;
+      margin-top: 15%;
+      font-weight: 700;
+      box-shadow:
+        20px 20px 60px #aea79e,
+        -20px -20px 60px #ece1d6;
+      cursor: pointer;
+    }
+  }
+}

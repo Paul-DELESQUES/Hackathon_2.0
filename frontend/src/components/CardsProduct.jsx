@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
+import { Link } from "react-router-dom";
+import { Tilt } from "react-tilt";
 import axios from "axios";
-import VanillaTilt from "vanilla-tilt";
 import "../styles/cardsProduct.scss";
 
 function CardsProduct() {
@@ -20,7 +21,7 @@ function CardsProduct() {
       });
   }, []);
 
-  useEffect(() => {
+  /*   useEffect(() => {
     VanillaTilt.init(document.querySelectorAll(".js-tilt"), {
       max: 25,
       speed: 400,
@@ -46,33 +47,32 @@ function CardsProduct() {
         size.removeEventListener("click", () => handleClick(index));
       });
     };
-  }, []);
+  }, []); */
 
   return (
     <section className="cards">
       {products.map((product) => (
-        <div key={product.id} className="card js-tilt" data-tilt>
-          <div className="banner">
-            <h2>{product.name}</h2>
-          </div>
-          <img src={product.picture} alt={product.name} />
-          <div className="content">
-            <div className="category">
-              <h3>Catégorie</h3>
-              <small>
-                {product.category} {product.sub_cat}
-              </small>
+        <Tilt>
+          <div key={product.id} className="card js-tilt" data-tilt>
+            <div className="banner">
+              <h2>{product.name}</h2>
             </div>
-            <h3>Quantité restante</h3>
-            <div className="quantity-parent">
-              <p className="quantity">{product.quantity_total}</p>
+            <img src={product.picture} alt={product.name} />
+            <div className="content">
+              <div className="category">
+                <h3>Catégorie</h3>
+                <small>
+                  {product.category} {product.sub_cat}
+                </small>
+              </div>
+              <Link to={`${product.id}`} key="product.id" className="id-link">
+                <button className="add-btn pop" type="button">
+                  <span>Plus de détails</span>
+                </button>
+              </Link>
             </div>
-            <button className="add-btn pop" type="button">
-              <span>Ajouter au panier</span>
-              <span>{product.price}€</span>
-            </button>
           </div>
-        </div>
+        </Tilt>
       ))}
     </section>
   );
