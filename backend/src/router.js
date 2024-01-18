@@ -14,7 +14,6 @@ router.get("/product", productControllers.browse);
 
 // Route to get a specific product by ID
 router.get("/product/:id", productControllers.read);
-// router.get("/product/:id/category", productControllers.read);
 
 /* ************************************************************************* */
 
