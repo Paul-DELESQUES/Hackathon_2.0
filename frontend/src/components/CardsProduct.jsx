@@ -1,5 +1,6 @@
 import React, { useEffect } from "react";
 import VanillaTilt from "vanilla-tilt";
+import "../styles/cardsProduct.scss";
 
 function CardsProduct() {
   useEffect(() => {

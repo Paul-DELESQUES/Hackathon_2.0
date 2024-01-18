@@ -1,0 +1,103 @@
+body {
+  margin: 0;
+  font-family: "roboto", sans-serif;
+  background: #eee;
+}
+.cards * {
+  box-sizing: border-box;
+}
+
+.cards {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  flex-wrap: wrap;
+  padding: 1em;
+
+  .card {
+    width: 17em;
+    background: #fff;
+    border-radius: 10px;
+    box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+    position: relative;
+    transform-style: preserve-3d;
+    transform: perspective(1000px);
+    margin: 2em;
+
+    .banner {
+      height: 15em;
+      background: linear-gradient(90deg, #fb3854, #901026 100%);
+      padding-top: 3em;
+      border-radius: 10px 10px 50% 50%;
+
+      h2 {
+        color: #fff;
+        margin: 0000.8em;
+      }
+    }
+
+    img {
+      width: 16em;
+      position: absolute;
+      top: -4em;
+      right: -6em;
+      filter: drop-shadow(15px 10px 25px rgba(0, 0, 0, 0.5));
+
+      &.foundation {
+        width: 10em;
+        top: 7em;
+        right: -3em;
+        filter: drop-shadow(15px 10px 25px rgba(0, 0, 0, 0.5));
+      }
+    }
+
+    .content {
+      padding: 1em;
+
+      .details small {
+        display: block;
+        line-height: 24px;
+        letter-spacing: 1px;
+        font-size: 0.8em;
+      }
+      .sizes ul {
+        list-style: none;
+
+        .size {
+          display: inline-block;
+          margin: 0 0.5em;
+          cursor: pointer;
+          font-weight: 700;
+        }
+
+        .size:hover {
+          color: #ccc;
+        }
+      }
+
+      .cart {
+        background: linear-gradient(90deg, #fb3854 0%, #901026 100%);
+        padding: 1em 1.1em;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        width: 100%;
+        border-radius: 2em;
+        color: #fff;
+        border: none;
+        margin: 0 auto;
+        font-weight: 700;
+        box-shadow: 0px 5px 15px rgba(251, 56, 84, 0.7);
+        cursor: pointer;
+      }
+
+      .pop {
+        transform: translateZ(20px);
+      }
+    }
+  }
+}
+
+.active {
+  color: #ccc;
+}
