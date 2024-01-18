@@ -5,7 +5,36 @@ import "../styles/cardsProduct.scss";
 
 function CardsProduct() {
   const [products, setProducts] = useState([]);
+  const [search, setSearch] = useState("");
+
   console.info(products);
+
+  const onChange = (event) => {
+    setSearch(event.target.value);
+  };
+
+  const onSearch = () => {
+    // Si la barre de recherche est vide, réinitialisez la liste des produits
+    if (!search.trim()) {
+      axios
+        .get(`${import.meta.env.VITE_BACKEND_URL}/api/product`)
+        .then((response) => {
+          const result = response.data;
+          setProducts(result);
+        })
+        .catch((error) => {
+          console.error("Erreur de la récupération des produits:", error);
+        });
+    } else {
+      // Sinon, filtrez les produits en fonction du terme de recherche
+      const filteredProducts = products.filter((product) =>
+        product.name.toLowerCase().includes(search.toLowerCase())
+      );
+
+      // Mettez à jour la liste des produits avec les résultats de la recherche
+      setProducts(filteredProducts);
+    }
+  };
 
   useEffect(() => {
     axios
@@ -50,9 +79,23 @@ function CardsProduct() {
 
   return (
     <>
-      <form>
-        <input type="text" placeholder="Rechercher un produit..." />
-        <button type="button">Rechercher</button>
+      <form
+        className="searchBar"
+        onSubmit={(e) => {
+          e.preventDefault();
+          onSearch();
+        }}
+      >
+        <input
+          type="text"
+          value={search}
+          onChange={onChange}
+          placeholder="Rechercher un produit..."
+          className="searchInput"
+        />
+        <button type="submit" className="searchButton">
+          Rechercher
+        </button>
       </form>
       <section className="cards">
         {products.map((product) => (
