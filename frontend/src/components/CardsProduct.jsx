@@ -9,7 +9,7 @@ function CardsProduct() {
 
   useEffect(() => {
     axios
-      .get(`${import.meta.env.VITE_BACKEND_URL}/api/products`)
+      .get(`${import.meta.env.VITE_BACKEND_URL}/api/product`)
       .then((response) => {
         const result = response.data;
         setProducts(result);
