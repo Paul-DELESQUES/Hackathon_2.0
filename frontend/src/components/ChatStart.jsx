@@ -9,7 +9,7 @@ function ChatStart(props) {
   return (
     <div>
       <button type="button" className="chatstart" onClick={letStart}>
-        Let Start
+        Que recherchez-vous ?
       </button>
     </div>
   );

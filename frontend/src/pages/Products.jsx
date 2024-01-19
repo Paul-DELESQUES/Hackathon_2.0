@@ -1,7 +1,13 @@
 import CardsProduct from "../components/CardsProduct";
+import Return from "../components/Return";
 
 function Products() {
-  return <CardsProduct />;
+  return (
+    <>
+      <Return />
+      <CardsProduct />;
+    </>
+  );
 }
 
 export default Products;

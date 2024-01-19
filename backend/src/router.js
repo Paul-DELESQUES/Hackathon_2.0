@@ -6,7 +6,7 @@ const router = express.Router();
 // Define Your API Routes Here
 /* ************************************************************************* */
 
-// Import itemControllers module for handling item-related operations
+// Import productControllers module for handling product-related operations
 const productControllers = require("./controllers/productControllers");
 
 // Route to get a list of products

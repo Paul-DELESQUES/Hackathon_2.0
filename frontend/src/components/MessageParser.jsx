@@ -12,6 +12,7 @@ function MessageParser({ children, actions }) {
     ) {
       actions.handleHello();
     }
+<<<<<<< HEAD
 
     if (
       message.includes("hair") ||
@@ -38,6 +39,31 @@ function MessageParser({ children, actions }) {
       message.includes("piscine")
     ) {
       actions.handleNotFound();
+=======
+    if (
+      message.includes("makeup") ||
+      message.includes("maquillage") ||
+      message.includes("maquillages") ||
+      message.includes("make up")
+    ) {
+      actions.handleMakeup();
+    }
+    if (
+      message.includes("lipstick") ||
+      message.includes("rouge") ||
+      message.includes("violet") ||
+      message.includes("couleur")
+    ) {
+      actions.handleLipstick();
+    }
+    if (
+      message.includes("bonnet") ||
+      message.includes("capuche") ||
+      message.includes("pantalon") ||
+      message.includes("jambon")
+    ) {
+      actions.handleNothing();
+>>>>>>> dev
     }
   };
 
