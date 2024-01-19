@@ -1,10 +1,15 @@
 /* eslint-disable react/no-unknown-property */
-import PropTypes from "prop-types";
 import { useEffect, useRef } from "react";
 import { GLTFLoader } from "three/examples/jsm/loaders/GLTFLoader";
+import { useThree } from "@react-three/fiber";
+import { useNavigate } from "react-router-dom";
+import gsap from "gsap";
+import PropTypes from "prop-types";
 
-function TabletCanvas({ onClick }) {
+function TabletCanvas({ cameraPosition }) {
   const tvRef = useRef();
+  const { camera } = useThree();
+  const navigate = useNavigate();
 
   useEffect(() => {
     const loader = new GLTFLoader();
@@ -16,7 +21,24 @@ function TabletCanvas({ onClick }) {
         tvRef.current.add(tv);
       }
     });
-  }, []);
+    if (cameraPosition === "tablet") {
+      gsap.to(camera.position, {
+        duration: 3,
+        x: 2.622,
+        y: -0.852,
+        z: 3.361,
+      });
+      gsap.to(camera.rotation, {
+        duration: 3.2,
+        x: 4.673,
+        y: -6.269,
+        z: -3.134,
+        onComplete: () => {
+          navigate("tablette");
+        },
+      });
+    }
+  }, [cameraPosition]);
 
   return (
     <group
@@ -24,7 +46,6 @@ function TabletCanvas({ onClick }) {
       position={[2.65, -1.54, 3.4]}
       scale={0.0015}
       rotation={[0, 1.58, 0]}
-      onClick={onClick}
     >
       <hemisphereLight intensity={2} groundColor="black" />
       <spotLight
@@ -40,7 +61,7 @@ function TabletCanvas({ onClick }) {
 }
 
 TabletCanvas.propTypes = {
-  onClick: PropTypes.func.isRequired,
+  cameraPosition: PropTypes.string.isRequired,
 };
 
 export default TabletCanvas;

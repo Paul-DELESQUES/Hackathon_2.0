@@ -7,6 +7,10 @@
   "dependencies": {
     "@react-three/drei": "^9.94.1",
     "@react-three/fiber": "^8.15.14",
+    "@theatre/core": "^0.7.0",
+    "@theatre/r3f": "^0.7.0",
+    "@theatre/studio": "^0.7.0",
+    "gsap": "^3.12.4",
     "axios": "^1.6.5",
     "js-cookie": "^3.0.5",
     "prop-types": "^15.8.1",

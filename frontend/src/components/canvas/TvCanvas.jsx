@@ -1,10 +1,15 @@
 /* eslint-disable react/no-unknown-property */
-import PropTypes from "prop-types";
+import { useThree } from "@react-three/fiber";
+import gsap from "gsap";
 import { useEffect, useRef } from "react";
 import { GLTFLoader } from "three/examples/jsm/loaders/GLTFLoader";
+import { useNavigate } from "react-router-dom";
+import PropTypes from "prop-types";
 
-function TvCanvas({ onClick }) {
+function TvCanvas({ cameraPosition }) {
   const tvRef = useRef();
+  const { camera } = useThree();
+  const navigate = useNavigate();
 
   useEffect(() => {
     const loader = new GLTFLoader();
@@ -16,15 +21,27 @@ function TvCanvas({ onClick }) {
         tvRef.current.add(tv);
       }
     });
-  }, []);
+    if (cameraPosition === "tv") {
+      gsap.to(camera.position, {
+        duration: 3,
+        x: 1.512,
+        y: -0.02,
+        z: 0.07,
+      });
+      gsap.to(camera.rotation, {
+        duration: 3.2,
+        x: 2.99,
+        y: 3.12,
+        z: -3.13,
+        onComplete: () => {
+          navigate("survey");
+        },
+      });
+    }
+  }, [cameraPosition]);
 
   return (
-    <group
-      ref={tvRef}
-      position={[1.5, -0.2, -3.2]}
-      scale={0.045}
-      onClick={onClick}
-    >
+    <group ref={tvRef} position={[1.8, -0.2, -3.2]} scale={0.045}>
       <hemisphereLight intensity={2} groundColor="black" />
       <spotLight
         position={[0, 0, 0]}
@@ -39,7 +56,7 @@ function TvCanvas({ onClick }) {
 }
 
 TvCanvas.propTypes = {
-  onClick: PropTypes.func.isRequired,
+  cameraPosition: PropTypes.string.isRequired,
 };
 
 export default TvCanvas;
