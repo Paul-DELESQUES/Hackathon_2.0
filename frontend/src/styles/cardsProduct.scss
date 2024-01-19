@@ -107,17 +107,43 @@ body {
 .searchInput {
   flex-grow: 1;
   padding: 15px;
-  border: 4px solid rgba(251, 56, 84, 0.7);
+  border: 4px solid #b9b0a7;
   border-radius: 4px;
   margin-right: 10px;
 }
 
 .searchButton {
-  background: linear-gradient(90deg, #fb3854 0%, #901026 100%);
+  background: linear-gradient(145deg, #dbd2c7, #b9b0a7);
   color: #fff;
   border: none;
   border-radius: 4px;
   padding: 10px 15px;
   cursor: pointer;
   font-size: 15px;
+}
+
+.sortButtons {
+  display: flex;
+  gap: 15px;
+  margin-left: 15px;
+}
+
+.sortButtons button {
+  padding: 10px;
+  cursor: pointer;
+  border: 1px solid #ccc;
+  background-color: #f8f8f8;
+  color: #333;
+  transition: 0.5s;
+}
+
+.sortButtons button:hover {
+  background-color: #901026;
+  color: white;
+}
+
+.sortButtons button.active {
+  background-color: #dbd2c7;
+  color: black;
+  border: 1px solid #dbd2c7;
 }

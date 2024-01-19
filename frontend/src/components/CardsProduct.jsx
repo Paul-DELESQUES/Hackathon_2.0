@@ -6,8 +6,25 @@ import "../styles/cardsProduct.scss";
 function CardsProduct() {
   const [products, setProducts] = useState([]);
   const [search, setSearch] = useState("");
+  const [sortOrder, setSortOrder] = useState("asc");
 
-  console.info(products);
+  const handleSortAscending = () => {
+    setSortOrder("asc");
+  };
+
+  const handleSortDescending = () => {
+    setSortOrder("desc");
+  };
+
+  const sortedProducts = [...products].sort((a, b) => {
+    if (sortOrder === "asc") {
+      return a.price - b.price;
+    }
+    if (sortOrder === "desc") {
+      return b.price - a.price;
+    }
+    return 0;
+  });
 
   const onChange = (event) => {
     setSearch(event.target.value);
@@ -27,8 +44,11 @@ function CardsProduct() {
         });
     } else {
       // Sinon, filtrez les produits en fonction du terme de recherche
-      const filteredProducts = products.filter((product) =>
-        product.name.toLowerCase().includes(search.toLowerCase())
+      const filteredProducts = products.filter(
+        (product) =>
+          product.name.toLowerCase().includes(search.toLowerCase()) ||
+          product.category.toLowerCase().includes(search.toLowerCase()) ||
+          product.sub_cat.toLowerCase().includes(search.toLowerCase())
       );
 
       // Mettez à jour la liste des produits avec les résultats de la recherche
@@ -42,7 +62,6 @@ function CardsProduct() {
       .then((response) => {
         const result = response.data;
         setProducts(result);
-        console.info(result);
       })
       .catch((error) => {
         console.error("Erreur de la récupération des produits:", error);
@@ -75,7 +94,7 @@ function CardsProduct() {
         size.removeEventListener("click", () => handleClick(index));
       });
     };
-  }, []);
+  }, [products]);
 
   return (
     <>
@@ -97,8 +116,24 @@ function CardsProduct() {
           Rechercher
         </button>
       </form>
+      <div className="sortButtons">
+        <button
+          type="button"
+          className={sortOrder === "asc" ? "active" : ""}
+          onClick={handleSortAscending}
+        >
+          Tri croissant
+        </button>
+        <button
+          type="button"
+          className={sortOrder === "desc" ? "active" : ""}
+          onClick={handleSortDescending}
+        >
+          Tri décroissant
+        </button>
+      </div>
       <section className="cards">
-        {products.map((product) => (
+        {sortedProducts.map((product) => (
           <div key={product.id} className="card js-tilt" data-tilt>
             <div className="banner">
               <h2>{product.name}</h2>
