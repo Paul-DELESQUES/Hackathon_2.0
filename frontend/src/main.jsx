@@ -6,6 +6,7 @@ import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import App from "./App";
 import Products from "./pages/Products";
 import Shop from "./pages/Shop";
+import ImgModal from "./components/canvas/Modal";
 
 const router = createBrowserRouter([
   {
@@ -19,6 +20,10 @@ const router = createBrowserRouter([
       {
         path: "products",
         element: <Products />,
+      },
+      {
+        path: "/tablette",
+        element: <ImgModal />,
       },
     ],
   },

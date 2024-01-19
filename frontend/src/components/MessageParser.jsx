@@ -1,10 +1,11 @@
 /*eslint-disable */
 import React from "react";
+import "../styles/chatbot.scss";
 
 function MessageParser({ children, actions }) {
   const parse = (message) => {
     if (
-      message.includes("hello") ||
+      message.includes("Bonjour") ||
       message.includes("bonjour") ||
       message.includes("coucou") ||
       message.includes("hi") ||
@@ -23,8 +24,7 @@ function MessageParser({ children, actions }) {
     if (
       message.includes("lipstick") ||
       message.includes("rouge") ||
-      message.includes("violet") ||
-      message.includes("couleur")
+      message.includes("violet")
     ) {
       actions.handleLipstick();
     }
@@ -36,16 +36,33 @@ function MessageParser({ children, actions }) {
     ) {
       actions.handleNothing();
     }
+    if (
+      message.includes("toto") ||
+      message.includes("formateur") ||
+      message.includes("bg")
+    ) {
+      actions.handleComprehension();
+    }
+    if (
+      message.includes("aurevoir") ||
+      message.includes("bye") ||
+      message.includes("au revoir") ||
+      message.includes("tchao")
+    ) {
+      actions.handleBye();
+    }
   };
 
   return (
-    <div>
-      {React.Children.map(children, (child) => {
-        return React.cloneElement(child, {
-          parse: parse,
-          actions: {},
-        });
-      })}
+    <div className="chatbot-container">
+      <div className="chatbot">
+        {React.Children.map(children, (child) => {
+          return React.cloneElement(child, {
+            parse: parse,
+            actions: {},
+          });
+        })}
+      </div>
     </div>
   );
 }
