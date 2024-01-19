@@ -106,6 +106,22 @@ function CardsProduct() {
           onSearch();
         }}
       >
+        <div className="sortButtons">
+          <button
+            type="button"
+            className={sortOrder === "asc" ? "active" : ""}
+            onClick={handleSortAscending}
+          >
+            Tri croissant
+          </button>
+          <button
+            type="button"
+            className={sortOrder === "desc" ? "active" : ""}
+            onClick={handleSortDescending}
+          >
+            Tri décroissant
+          </button>
+        </div>
         <input
           type="text"
           value={search}
@@ -117,22 +133,6 @@ function CardsProduct() {
           Rechercher
         </button>
       </form>
-      <div className="sortButtons">
-        <button
-          type="button"
-          className={sortOrder === "asc" ? "active" : ""}
-          onClick={handleSortAscending}
-        >
-          Tri croissant
-        </button>
-        <button
-          type="button"
-          className={sortOrder === "desc" ? "active" : ""}
-          onClick={handleSortDescending}
-        >
-          Tri décroissant
-        </button>
-      </div>
       <section className="cards">
         {sortedProducts.map((product) => (
           <Tilt>
@@ -147,6 +147,10 @@ function CardsProduct() {
                   <small>
                     {product.category} {product.sub_cat}
                   </small>
+                </div>
+                <div className="category">
+                  <h3>Prix</h3>
+                  <small>{product.price}€</small>
                 </div>
                 <Link to={`${product.id}`} key="product.id" className="id-link">
                   <button className="add-btn pop" type="button">

@@ -8,6 +8,8 @@
   align-items: center;
   flex-wrap: wrap;
   padding: 1em;
+  margin-left: 7%;
+  margin-right: 7%;
 
   .card {
     width: 17em;
@@ -34,7 +36,7 @@
       width: 16em;
       position: absolute;
       top: 7em;
-      right: -6em;
+      right: -8em;
       filter: drop-shadow(15px 10px 25px rgba(0, 0, 0, 0.5));
 
       &.foundation {
@@ -78,7 +80,7 @@
           border-radius: 2em;
           border: none;
           margin: 0 auto;
-          margin-top: 4em;
+          margin-top: 2em;
           font-weight: 700;
           box-shadow:
             20px 20px 60px #aea79e,
@@ -100,45 +102,54 @@
 
 .searchBar {
   display: flex;
-  justify-content: space-between;
+  justify-content: center;
   margin-bottom: 20px;
 }
 
 .searchInput {
-  flex-grow: 1;
   padding: 15px;
+  width: 50%;
   border: 4px solid #b9b0a7;
-  border-radius: 4px;
+  border-radius: 2em;
   margin-right: 10px;
+  margin-left: 3%;
+  box-shadow:
+    20px 20px 60px #aea79e,
+    -20px -20px 60px #ece1d6;
 }
 
 .searchButton {
   background: linear-gradient(145deg, #dbd2c7, #b9b0a7);
-  color: #fff;
   border: none;
-  border-radius: 4px;
-  padding: 10px 15px;
+  border-radius: 2em;
+  padding: 15px 30px;
   cursor: pointer;
   font-size: 15px;
+  box-shadow:
+    20px 20px 60px #aea79e,
+    -20px -20px 60px #ece1d6;
 }
 
 .sortButtons {
   display: flex;
   gap: 15px;
-  margin-left: 15px;
+  margin-left: -3%;
 }
 
 .sortButtons button {
   padding: 10px;
   cursor: pointer;
   border: 1px solid #ccc;
+  border-radius: 2em;
   background-color: #f8f8f8;
-  color: #333;
   transition: 0.5s;
+  box-shadow:
+    20px 20px 60px #aea79e,
+    -20px -20px 60px #ece1d6;
 }
 
 .sortButtons button:hover {
-  background-color: #901026;
+  background-color: #aea79e;
   color: white;
 }
 
