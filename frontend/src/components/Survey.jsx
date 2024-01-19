@@ -1,8 +1,10 @@
+/* eslint-disable import/no-extraneous-dependencies */
 import React from "react";
 import "survey-core/defaultV2.min.css";
 import { Model } from "survey-core";
 import "survey-core/i18n/french";
 import { Survey } from "survey-react-ui";
+import Return from "./Return";
 
 const json = {
   logoPosition: "right",
@@ -427,7 +429,12 @@ const json = {
 function SurveyComponent() {
   const model = new Model(json);
   model.locale = "fr";
-  return <Survey model={model} />;
+  return (
+    <>
+      <Return />
+      <Survey model={model} />;
+    </>
+  );
 }
 
 export default SurveyComponent;
