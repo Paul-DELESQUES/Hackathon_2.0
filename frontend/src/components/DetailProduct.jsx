@@ -22,9 +22,21 @@ function DetailProduct() {
       });
   }, [id]);
 
+  let imageSrc = "";
+
+  if (product.id === 10) {
+    imageSrc = "../src/assets/shampoo2.png";
+  } else if (product.id === 11) {
+    imageSrc = "../src/assets/shampoo3.png";
+  } else if (product.id === 5) {
+    imageSrc = "../src/assets/laque1.png";
+  } else {
+    imageSrc = `${product.id}`;
+  }
+
   return (
     <section className="details-section">
-      <img src={product.picture} alt={product.name} />
+      {imageSrc && <img src={imageSrc} alt={product.name} />}
       <div className="details-parent-div">
         <h1>Détails du produit</h1>
         <h2>Description</h2>
@@ -36,22 +48,15 @@ function DetailProduct() {
               {product.category} {product.sub_cat}
             </p>
           </div>
-          <div>
+          <div className="media-price-details">
             <h2>Prix</h2>
-            <p>Prix: {product.price}€</p>
+            <p>{product.price}€</p>
           </div>
           <button type="button" className="details-btn">
             Ajouter au panier
           </button>
         </div>
       </div>
-      <h2>Produits susceptible de vous plaire</h2>
-      <ul>
-        <li>
-          <img src={product.picture} alt="" />
-          <p>Prix: 5.99€</p>
-        </li>
-      </ul>
     </section>
   );
 }
