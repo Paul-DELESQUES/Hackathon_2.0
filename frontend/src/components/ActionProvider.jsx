@@ -23,6 +23,15 @@ function ActionProvider({ createChatBotMessage, setState, children }) {
     }));
   };
 
+  const handleWhatColortype = () => {
+    const botMessage = createChatBotMessage(
+      "Voici ce que j'ai à vous proposez",
+      {
+        widget: "hairColor",
+      }
+    );
+  };
+
   const handleMakeup = () => {
     const botMessage = createChatBotMessage(
       "Voici une panoplie de maquillage qui pourrait vous intéresser!",
@@ -37,19 +46,40 @@ function ActionProvider({ createChatBotMessage, setState, children }) {
     }));
   };
 
-  const handleLipstick = () => {
-    const botMessage = createChatBotMessage(
-      "Voici le rouge à lèvre de couleur violet qui pourrait vous intéresser!",
-      {
-        widget: "lipStick",
-      }
-    );
+  const handleBlonde = () => {
+    const botMessage = createChatBotMessage("couleur de cheveux!", {
+      widget: "blonde",
+    });
 
     setState((prev) => ({
       ...prev,
       messages: [...prev.messages, botMessage],
     }));
   };
+
+  const handleNotFound = () => {
+    const botMessage = createChatBotMessage(
+      "Désolé, je n'ai pas compris votre question"
+    );
+
+    setState((prev) => ({
+      ...prev,
+      messages: [...prev.messages, botMessage],
+    }));
+
+    const handleLipstick = () => {
+      const botMessage = createChatBotMessage(
+        "Voici le rouge à lèvre de couleur violet qui pourrait vous intéresser!",
+        {
+          widget: "lipStick",
+        }
+      );
+
+      setState((prev) => ({
+        ...prev,
+        messages: [...prev.messages, botMessage],
+      }));
+    };
 
   const handleNothing = () => {
     const botMessage = createChatBotMessage(
@@ -93,11 +123,15 @@ function ActionProvider({ createChatBotMessage, setState, children }) {
             handleNothing,
             handleComprehension,
             handleBye,
+            handleWhatColortype,
+            handleBlonde,
+            handleNotFound,
           },
         });
       })}
     </div>
-  );
+    );
+  };
 }
 
 export default ActionProvider;

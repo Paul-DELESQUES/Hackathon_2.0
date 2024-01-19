@@ -14,13 +14,14 @@ function MessageParser({ children, actions }) {
       actions.handleHello();
     }
     if (
-      message.includes("makeup") ||
-      message.includes("maquillage") ||
-      message.includes("maquillages") ||
-      message.includes("make up")
+      message.includes("hair") ||
+      message.includes("cheveux") ||
+      message.includes("hygiène") ||
+      message.includes("coloriage")
     ) {
-      actions.handleMakeup();
+      actions.handleWhatColortype();
     }
+
     if (
       message.includes("lipstick") ||
       message.includes("rouge") ||
@@ -29,12 +30,44 @@ function MessageParser({ children, actions }) {
       actions.handleLipstick();
     }
     if (
-      message.includes("bonnet") ||
-      message.includes("capuche") ||
-      message.includes("pantalon") ||
-      message.includes("jambon")
+      message.includes("blonde") ||
+      message.includes("rousse") ||
+      message.includes("couleur")
     ) {
-      actions.handleNothing();
+      actions.handleBlonde();
+    }
+
+    if (
+      message.includes("chemise") ||
+      message.includes("casque") ||
+      message.includes("chaussures") ||
+      message.includes("piscine")
+    ) {
+      actions.handleNotFound();
+      if (
+        message.includes("makeup") ||
+        message.includes("maquillage") ||
+        message.includes("maquillages") ||
+        message.includes("make up")
+      ) {
+        actions.handleMakeup();
+      }
+      if (
+        message.includes("lipstick") ||
+        message.includes("rouge") ||
+        message.includes("violet") ||
+        message.includes("couleur")
+      ) {
+        actions.handleLipstick();
+      }
+      if (
+        message.includes("bonnet") ||
+        message.includes("capuche") ||
+        message.includes("pantalon") ||
+        message.includes("jambon")
+      ) {
+        actions.handleNothing();
+      }
     }
     if (
       message.includes("toto") ||
@@ -53,7 +86,7 @@ function MessageParser({ children, actions }) {
     }
   };
 
-  return (
+   return (
     <div className="chatbot-container">
       <div className="chatbot">
         {React.Children.map(children, (child) => {
@@ -64,7 +97,7 @@ function MessageParser({ children, actions }) {
         })}
       </div>
     </div>
-  );
+    );
+  };
 }
-
 export default MessageParser;

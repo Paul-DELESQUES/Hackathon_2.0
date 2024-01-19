@@ -3,6 +3,7 @@ import { createChatBotMessage } from "react-chatbot-kit";
 import ProductChoiceMakeup from "./choix/ProductChoiceMakeUP";
 import ProductChoiceLipstick from "./choix/ProductChoiceLipstick";
 import ChatStart from "./ChatStart";
+import ProductChoiceHairCol from "./choix/ProductChoiceHairCol";
 
 
 const botName = "Botéal";
@@ -31,6 +32,10 @@ const config = {
       widgetFunc: (props) => <ChatStart {...props} />,
     },
     {
+      widgetName: "blonde",
+      widgetFunc: (props) => <ProductChoise {...props} />,
+    },
+    {
       widgetName: "makeUp",
       widgetFunc: (props) => <ProductChoiceMakeup {...props} />,
     },
@@ -38,10 +43,10 @@ const config = {
       widgetName: "lipStick",
       widgetFunc: (props) => <ProductChoiceLipstick {...props} />,
     },
-    //  {
-    //   widgetName: "Let End",
-    //   widgetFunc: (props) => <ChatEnd {...props} />,
-    // },
+    {
+      widgetName: "hairColor",
+      widgetFunc: (props) => <ProductChoiceHairCol {...props} />,
+    },
   ],
 };
 
