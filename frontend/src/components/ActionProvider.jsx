@@ -28,6 +28,7 @@ function ActionProvider({ createChatBotMessage, setState, children }) {
       "Voici ce que j'ai à vous proposez",
       {
         widget: "hairColor",
+      }
         
   const handleMakeup = () => {
     const botMessage = createChatBotMessage(
