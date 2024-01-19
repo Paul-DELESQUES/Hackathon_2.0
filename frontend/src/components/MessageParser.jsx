@@ -1,7 +1,7 @@
 /*eslint-disable */
 import React from "react";
 
-export default function MessageParser({ children, actions }) {
+function MessageParser({ children, actions }) {
   const parse = (message) => {
     if (
       message.includes("hello") ||
@@ -37,41 +37,41 @@ export default function MessageParser({ children, actions }) {
       message.includes("piscine")
     ) {
       actions.handleNotFound();
-    if (
-      message.includes("makeup") ||
-      message.includes("maquillage") ||
-      message.includes("maquillages") ||
-      message.includes("make up")
-    ) {
-      actions.handleMakeup();
+      if (
+        message.includes("makeup") ||
+        message.includes("maquillage") ||
+        message.includes("maquillages") ||
+        message.includes("make up")
+      ) {
+        actions.handleMakeup();
+      }
+      if (
+        message.includes("lipstick") ||
+        message.includes("rouge") ||
+        message.includes("violet") ||
+        message.includes("couleur")
+      ) {
+        actions.handleLipstick();
+      }
+      if (
+        message.includes("bonnet") ||
+        message.includes("capuche") ||
+        message.includes("pantalon") ||
+        message.includes("jambon")
+      ) {
+        actions.handleNothing();
+      }
     }
-    if (
-      message.includes("lipstick") ||
-      message.includes("rouge") ||
-      message.includes("violet") ||
-      message.includes("couleur")
-    ) {
-      actions.handleLipstick();
-    }
-    if (
-      message.includes("bonnet") ||
-      message.includes("capuche") ||
-      message.includes("pantalon") ||
-      message.includes("jambon")
-    ) {
-      actions.handleNothing();
-    }
-  };
 
-  return (
-    <div>
-      {React.Children.map(children, (child) => {
-        return React.cloneElement(child, {
-          parse: parse,
-          actions: {},
-        });
-      })}
-    </div>
-  );
+    return (
+      <div>
+        {React.Children.map(children, (child) => {
+          return React.cloneElement(child, {
+            parse: parse,
+            actions: {},
+          });
+        })}
+      </div>
+    );
+  };
 }
-  
