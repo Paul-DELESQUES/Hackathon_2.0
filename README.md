@@ -1,79 +1,89 @@
-## Concept
+# Botéal Shop
 
-This template is meant to serve as a foundation for every P2/P3 following the React-Express-MySQL stack, as learned in Wild Code School.
-It's pre-configured with a set of tools which'll help students produce industry-quality and easier-to-maintain code, while staying a pedagogical tool.
+Bienvenue dans Botéal Shop, une application web immersive qui vous permet de d'explorer un salon et de découvrir des fonctionnalités innovantes.
 
-## Setup & Use
+## Table des matières
 
-### Windows users
+- [À propos](#à-propos)
+- [Technologies utilisées](#technologies-utilisées)
+- [Installation](#installation)
+- [Utilisation](#utilisation)
+- [Contribuer](#contribuer)
+- [Licence](#licence)
 
-Be sure to run these commands in a git terminal to avoid [issues with newline formats](https://en.wikipedia.org/wiki/Newline#Issues_with_different_newline_formats):
 
-```
-git config --global core.eol lf
-git config --global core.autocrlf false
-```
+## À propos
 
-### Project Initialization
+Botéal Shop est une plateforme interactive afin d'explorez un salon et découvrir une façon innovante de naviguer sur un site.
 
-- In VSCode, install plugins **Prettier - Code formatter** and **ESLint** and configure them
-- Clone this repo, enter it
-- Run command `npm install`
-- Create environment files (`.env`) in both `backend` and `frontend`: you can copy `.env.sample` files as starters (**don't** delete them)
+## Technologies utilisées
 
-### Available Commands
+- **React** - Bibliothèque JavaScript pour la construction d'interfaces utilisateur réactives.
+- **ThreeJS** - Utiliser pour la partie 3D
+- **Sass** - Langage de feuilles de style en cascade pour une stylisation avancée.
+- **Express.js** - Cadre d'application web Node.js pour la création d'API robustes.
 
-- `db:migrate` : Run the database migration script
-- `db:seed` : Run the database seed script
-- `dev` : Starts both servers (frontend + backend) in one terminal
-- `dev-front` : Starts the React frontend server
-- `dev-back` : Starts the Express backend server
-- `lint` : Runs validation tools (will be executed on every _commit_, and refuse unclean code)
+## Installation
 
-## FAQ
+1. **Clonez ce dépôt sur votre machine locale.**
+    ```bash
+    git clone https://github.com/non-d'utilisateur/Hackathon_2.0.git
+    ```
 
-### Tools
+2. **Accédez au répertoire du projet.**
+    ```bash
+    cd Hackathon_2.0
+    ```
 
-- _Concurrently_ : Allows for several commands to run concurrently in the same CLI
-- _Husky_ : Allows to execute specific commands that trigger on _git_ events
-- _Vite_ : Alternative to _Create-React-App_, packaging less tools for a more fluid experience
-- _ESLint_ : "Quality of code" tool, ensures chosen rules will be enforced
-- _Prettier_ : "Quality of code" tool as well, focuses on the styleguide
-- _ Airbnb Standard_ : One of the most known "standards", even though it's not officially linked to ES/JS
+3. **Installez les dépendances du serveur.**
+    ```bash
+    npm install
+    ```
 
-## Deployment with Traefik
+4. **Accédez au répertoire serveur (backend).**
+    ```bash
+    cd /backend
+    ```
 
-> ⚠️ Prerequisites : You must have installed and configured Traefik on your VPS beforehand.
-> https://github.com/WildCodeSchool/vps-traefik-starter-kit/
+5. **Modifier le .env en utilisant le .env.sample / lancer migrate et seed**
+    ```bash
+    npm run db:migrate 
+    npm run db:seed
+    ```
 
-For deployment, you have to go to `secrets` → app `actions` on the github repo to insert via `New repository secret` :
+6. **Revenez au répertoire principal.**
+    ```bash
+    cd ..
+    ```
 
-- SSH_HOST : IP address of your VPS
-- SSH_USER : SSH login to your VPS
-- SSH_PASSWORD : SSH connection password to your VPS
+7. **Lancez le serveur.**
+    ```bash
+    npm run dev
+    ```
+8. **Ouvrez votre navigateur et accédez à `http://localhost:3000` pour utiliser Botéal Shop.**
 
-And a public variable from the tab `/settings/variables/actions` :
+## Utilisation
 
-- PROJECT_NAME : the name of the project used to create the subdomain.
+- **Page d'accueil** : Explorez les onglets grâce à une barre incluant des boutons en bas de l'écran.
+- **Filtres** : Utilisez les filtres pour affiner votre recherche en fonction de vos besoins sur la page produits, etc.
+- **Détails du produit** : Obtenez des informations détaillées sur un produit.
+- **Utiliser un chatBot**: Le bouton Tablette permet d'accéder au chatBot pour faciliter la naviguation et vos besoins.
+- ** formulaire d'abonnement**: Le bouton TV vous permettra d'accéder à un questionnaire afin de paramétrer un potentiel abonnement en fonction de vos besoins.
 
-> ⚠️ Warning : underscores are not allowed. They can cause trouble with the let's encrypt certificate
+## Contribuer
 
-Use this same tab to add the other environment variables required for the project if any.
+Nous accueillons les contributions de la communauté ! Pour contribuer, veuillez suivre ces étapes :
 
-Only the backend will be accessible. The root path `"/"` will redirect to the dist folder on your frontend. In order to allow that, please uncomment the line as explain on `backend/src/app.js` (Line 102).
-Because the backend will serve the front, the global variable VITE_BACKEND_URL will be set with an empty string.
+1. **Fork le projet.**
+2. **Créez une branche pour votre fonctionnalité (`git switch -c fonctionnalite-incroyable`).**
+3. **Committez vos modifications (`git commit -m 'Ajouter une fonctionnalité incroyable'`).**
+4. **Push vers la branche (`git push origin fonctionnalite-incroyable`).**
+5. **Ouvrez une pull request.**
 
-Your url will be ` https://${PROJECT-NAME}.${subdomain}.wilders.dev/`.
+## Licence
 
-### About the database
+Ce projet est sous licence [MIT](LICENSE).
 
-The database is automaticaly deployed with the name of your repo. During the build of the projet (`docker-entry.sh`), the `node migrate.js` command is executed in the backend. If you want to seed automaticaly your database using the `seed.js` script, replace the command _build_ on you `backend/package.json` by `node migrate.js && node seed.js`.
+---
 
-### About public assets (pictures, fonts...)
-
-Don't use any public folder on your frontend. This folder won't be accessible online. You may move your public assets in the `backend/public` folder. Prefer [static assets](https://vitejs.dev/guide/assets) when possible.
-
-### About Logs
-
-If you want to access the logs of your online projet (to follow the deployement or to watch any bug error), connect to your VPS (`ssh user@host`).
-Then, go on your specific project and run  `docker compose logs -t -f`.
+**Botéal Shop** - Une innovation de navigation !!! 
