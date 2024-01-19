@@ -68,7 +68,7 @@ Botéal Shop est une plateforme interactive afin d'explorez un salon et découvr
 - **Filtres** : Utilisez les filtres pour affiner votre recherche en fonction de vos besoins sur la page produits, etc.
 - **Détails du produit** : Obtenez des informations détaillées sur un produit.
 - **Utiliser un chatBot**: Le bouton Tablette permet d'accéder au chatBot pour faciliter la naviguation et vos besoins.
-- ** formulaire d'abonnement**: Le bouton TV vous permettra d'accéder à un questionnaire afin de paramétrer un potentiel abonnement en fonction de vos besoins.
+- **Formulaire d'abonnement**: Le bouton TV vous permettra d'accéder à un questionnaire afin de paramétrer un potentiel abonnement en fonction de vos besoins.
 
 ## Contribuer
 
