@@ -1,6 +1,7 @@
 import React from "react";
 import "survey-core/defaultV2.min.css";
 import { Model } from "survey-core";
+import "survey-core/i18n/french";
 import { Survey } from "survey-react-ui";
 
 const json = {
@@ -425,6 +426,7 @@ const json = {
 
 function SurveyComponent() {
   const model = new Model(json);
+  model.locale = "fr";
   return <Survey model={model} />;
 }
 
