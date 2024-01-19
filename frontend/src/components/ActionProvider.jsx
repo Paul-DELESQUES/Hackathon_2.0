@@ -29,8 +29,8 @@ function ActionProvider({ createChatBotMessage, setState, children }) {
       {
         widget: "hairColor",
       }
-        
-  const handleMakeup = () => {
+      
+   const handleMakeup = () => {
     const botMessage = createChatBotMessage(
       "Voici une panoplie de maquillage qui pourrait vous intéresser!",
       {
