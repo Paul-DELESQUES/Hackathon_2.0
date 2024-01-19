@@ -26,12 +26,11 @@ body {
 
     .banner {
       height: 15em;
-      background: linear-gradient(90deg, #fb3854, #901026 100%);
+      background: linear-gradient(145deg, #dbd2c7, #b9b0a7);
       padding-top: 3em;
       border-radius: 10px 10px 50% 50%;
 
       h2 {
-        color: #fff;
         margin: 0000.8em;
       }
     }
@@ -39,7 +38,7 @@ body {
     img {
       width: 16em;
       position: absolute;
-      top: -4em;
+      top: 7em;
       right: -6em;
       filter: drop-shadow(15px 10px 25px rgba(0, 0, 0, 0.5));
 
@@ -71,20 +70,26 @@ body {
         }
       }
 
-      .add-btn {
-        background: linear-gradient(90deg, #fb3854 0%, #901026 100%);
-        padding: 1em 1.1em;
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-        width: 100%;
-        border-radius: 2em;
-        color: #fff;
-        border: none;
-        margin: 0 auto;
-        font-weight: 700;
-        box-shadow: 0px 5px 15px rgba(251, 56, 84, 0.7);
-        cursor: pointer;
+      .id-link {
+        text-decoration: none;
+
+        .add-btn {
+          background: linear-gradient(145deg, #dbd2c7, #b9b0a7);
+          padding: 1em 1.1em;
+          display: flex;
+          justify-content: space-between;
+          align-items: center;
+          width: 100%;
+          border-radius: 2em;
+          border: none;
+          margin: 0 auto;
+          margin-top: 4em;
+          font-weight: 700;
+          box-shadow:
+            20px 20px 60px #aea79e,
+            -20px -20px 60px #ece1d6;
+          cursor: pointer;
+        }
       }
 
       .pop {

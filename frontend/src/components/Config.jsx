@@ -1,9 +1,11 @@
 /*eslint-disable */
 import { createChatBotMessage } from "react-chatbot-kit";
-import ProductChoise from "./choix/ProductChoise";
+import ProductChoiceMakeup from "./choix/ProductChoiceMakeUP";
+import ProductChoiceLipstick from "./choix/ProductChoiceLipstick";
 import ChatStart from "./ChatStart";
+import ProductChoiceHairCol from "./choix/ProductChoiceHairCol";
 
-const botName = "LOr&Al";
+const botName = "Loréal";
 const config = {
   initialMessages: [
     createChatBotMessage(`Bonjour! je suis ${botName}`, {
@@ -29,8 +31,20 @@ const config = {
       widgetFunc: (props) => <ChatStart {...props} />,
     },
     {
-      widgetName: "dogPicture",
+      widgetName: "blonde",
       widgetFunc: (props) => <ProductChoise {...props} />,
+    },
+    {
+      widgetName: "makeUp",
+      widgetFunc: (props) => <ProductChoiceMakeup {...props} />,
+    },
+    {
+      widgetName: "lipStick",
+      widgetFunc: (props) => <ProductChoiceLipstick {...props} />,
+    },
+    {
+      widgetName: "hairColor",
+      widgetFunc: (props) => <ProductChoiceHairCol {...props} />,
     },
   ],
 };

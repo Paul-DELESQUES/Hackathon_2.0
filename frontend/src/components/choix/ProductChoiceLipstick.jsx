@@ -1,17 +1,17 @@
 /*eslint-disable */
 import React, { useEffect, useState } from "react";
-import axios from "axios";
 import { Link } from "react-router-dom";
+import axios from "axios";
+import "./productChoise.scss";
 
 function ProductChoise() {
-  const [imageUrl, setImageUrl] = useState("");
+  const [imageUrl, setImageUrl] = useState();
 
   useEffect(() => {
     axios
-      .get(`${import.meta.env.VITE_BACKEND_URL}/api/product/3`)
+      .get(`${import.meta.env.VITE_BACKEND_URL}/api/product/15`)
       .then((response) => {
         const result = response.data;
-        console.log(result);
         setImageUrl(result.picture);
       })
       .catch((error) => {
@@ -20,9 +20,9 @@ function ProductChoise() {
   }, []);
 
   return (
-    <div className="hairColor">
-      <Link to="/products/3">
-        <img className="hair" src={imageUrl} alt="haircolort" />
+    <div className="productmakeup">
+      <Link to="/products/15">
+      <img className="lolo" src={`${imageUrl}`} alt="un rouge à lèvres de couleur violet" />
       </Link>
     </div>
   );
