@@ -23,7 +23,14 @@ function ActionProvider({ createChatBotMessage, setState, children }) {
     }));
   };
 
-  const handleMakeup = () => {
+  const handleWhatColortype = () => {
+    const botMessage = createChatBotMessage(
+      "Voici ce que j'ai à vous proposez",
+      {
+        widget: "hairColor",
+      }
+      
+   const handleMakeup = () => {
     const botMessage = createChatBotMessage(
       "Voici une panoplie de maquillage qui pourrait vous intéresser!",
       {
@@ -37,6 +44,20 @@ function ActionProvider({ createChatBotMessage, setState, children }) {
     }));
   };
 
+  const handleBlonde = () => {
+    const botMessage = createChatBotMessage("couleur de cheveux!", {
+      widget: "blonde",
+    });
+
+    setState((prev) => ({
+      ...prev,
+      messages: [...prev.messages, botMessage],
+    }));
+  };
+
+  const handleNotFound = () => {
+    const botMessage = createChatBotMessage(
+      "Désolé, je n'ai pas compris votre question"
 
   const handleLipstick = () => {
     const botMessage = createChatBotMessage(
@@ -51,7 +72,7 @@ function ActionProvider({ createChatBotMessage, setState, children }) {
       messages: [...prev.messages, botMessage],
     }));
   };
-
+    
     const handleNothing = () => {
       const botMessage = createChatBotMessage("Really, bro ?");
 
@@ -65,6 +86,13 @@ function ActionProvider({ createChatBotMessage, setState, children }) {
     <div>
       {React.Children.map(children, (child) => {
         return React.cloneElement(child, {
+          actions: {
+            startBtn,
+            handleHello,
+            handleWhatColortype,
+            handleBlonde,
+            handleNotFound,
+          },
           actions: { startBtn, handleHello, handleMakeup, handleLipstick, handleNothing },
         });
       })}

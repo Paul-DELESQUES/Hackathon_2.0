@@ -1,7 +1,7 @@
 /*eslint-disable */
 import React from "react";
 
-function MessageParser({ children, actions }) {
+export default function MessageParser({ children, actions }) {
   const parse = (message) => {
     if (
       message.includes("hello") ||
@@ -12,6 +12,31 @@ function MessageParser({ children, actions }) {
     ) {
       actions.handleHello();
     }
+    if (
+      message.includes("hair") ||
+      message.includes("cheveux") ||
+      message.includes("hygiène") ||
+      message.includes("coloriage")
+    ) {
+      actions.handleWhatColortype();
+    }
+
+    if (
+      message.includes("blonde") ||
+      message.includes("rousse") ||
+      message.includes("violet") ||
+      message.includes("couleur")
+    ) {
+      actions.handleBlonde();
+    }
+
+    if (
+      message.includes("chemise") ||
+      message.includes("casque") ||
+      message.includes("chaussures") ||
+      message.includes("piscine")
+    ) {
+      actions.handleNotFound();
     if (
       message.includes("makeup") ||
       message.includes("maquillage") ||
@@ -49,5 +74,4 @@ function MessageParser({ children, actions }) {
     </div>
   );
 }
-
-export default MessageParser;
+  
