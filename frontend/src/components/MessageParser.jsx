@@ -1,7 +1,7 @@
 /*eslint-disable */
 import React from "react";
 
-function MessageParser({ children, actions }) {
+export default function MessageParser({ children, actions }) {
   const parse = (message) => {
     if (
       message.includes("hello") ||
@@ -75,4 +75,4 @@ function MessageParser({ children, actions }) {
   );
 }
 
-export default MessageParser;
+
