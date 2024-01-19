@@ -1,0 +1,23 @@
+.modal {
+  min-height: 100svh;
+  display: flex;
+  background-image: url("/src/assets/Tablette.png");
+  background-size: cover;
+  width: 100vw;
+  justify-content: center;
+  align-items: center;
+  position: fixed;
+
+  .chatbot {
+    background-image: none;
+    background-size: none;
+    color: whitesmoke;
+    padding: 0.5rem;
+    border: none;
+    border-radius: 5px;
+    font-size: 0.9rem;
+    cursor: pointer;
+    margin-right: auto;
+    margin-left: auto;
+  }
+}

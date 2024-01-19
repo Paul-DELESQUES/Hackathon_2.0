@@ -1,10 +1,12 @@
-import "../styles/products.scss";
+import CardsProduct from "../components/CardsProduct";
+import Return from "../components/Return";
 
 function Products() {
   return (
-    <div className="products">
-      <h1>Products</h1>
-    </div>
+    <>
+      <Return />
+      <CardsProduct />;
+    </>
   );
 }
 

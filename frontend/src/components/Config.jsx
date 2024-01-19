@@ -1,11 +1,16 @@
+/*eslint-disable */
 import { createChatBotMessage } from "react-chatbot-kit";
-import ProductChoise from "./choix/ProductChoise";
+import ProductChoiceMakeup from "./choix/ProductChoiceMakeUP";
+import ProductChoiceLipstick from "./choix/ProductChoiceLipstick";
+import ChatStart from "./ChatStart";
+import ProductChoiceHairCol from "./choix/ProductChoiceHairCol";
 
+
+const botName = "Botéal";
 const config = {
-  botName: "Lor&Al",
   initialMessages: [
-    createChatBotMessage("Bonjour, je suis votre assistant shop l'Oréal", {
-      widget: "productOptions",
+    createChatBotMessage(`Bonjour! je suis ${botName}`, {
+      widget: "Let Start",
     }),
   ],
   customStyles: {
@@ -13,13 +18,34 @@ const config = {
       backgroundColor: "#376B7E",
     },
     chatButton: {
-      backgroundColor: "#376B7E",
+      backgroundColor: "#396d57",
+    },
+
+    widget: {
+      width: "30px",
     },
   },
+
   widgets: [
     {
-      widgetName: "productOptions",
-      widgetFunc: (props) => <ProductChoise props={props} />,
+      widgetName: "Let Start",
+      widgetFunc: (props) => <ChatStart {...props} />,
+    },
+    {
+      widgetName: "blonde",
+      widgetFunc: (props) => <ProductChoise {...props} />,
+    },
+    {
+      widgetName: "makeUp",
+      widgetFunc: (props) => <ProductChoiceMakeup {...props} />,
+    },
+    {
+      widgetName: "lipStick",
+      widgetFunc: (props) => <ProductChoiceLipstick {...props} />,
+    },
+    {
+      widgetName: "hairColor",
+      widgetFunc: (props) => <ProductChoiceHairCol {...props} />,
     },
   ],
 };
