@@ -1,9 +1,13 @@
 /* eslint-disable react/no-unknown-property */
 import { useEffect, useRef } from "react";
 import { GLTFLoader } from "three/examples/jsm/loaders/GLTFLoader";
+import { useThree } from "@react-three/fiber";
+import gsap from "gsap";
+import PropTypes from "prop-types";
 
-function TabletCanvas() {
+function TabletCanvas({ cameraPosition }) {
   const tvRef = useRef();
+  const { camera } = useThree();
 
   useEffect(() => {
     const loader = new GLTFLoader();
@@ -15,7 +19,21 @@ function TabletCanvas() {
         tvRef.current.add(tv);
       }
     });
-  }, []);
+    if (cameraPosition === "tablet") {
+      gsap.to(camera.position, {
+        duration: 3,
+        x: 2.622,
+        y: -0.852,
+        z: 3.361,
+      });
+      gsap.to(camera.rotation, {
+        duration: 3.2,
+        x: 4.673,
+        y: -6.269,
+        z: -3.134,
+      });
+    }
+  }, [cameraPosition]);
 
   return (
     <group
@@ -36,5 +54,9 @@ function TabletCanvas() {
     </group>
   );
 }
+
+TabletCanvas.propTypes = {
+  cameraPosition: PropTypes.string.isRequired,
+};
 
 export default TabletCanvas;

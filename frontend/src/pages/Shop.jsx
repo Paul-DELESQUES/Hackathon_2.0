@@ -1,31 +1,32 @@
 /* eslint-disable react/no-unknown-property */
-import { Suspense } from "react";
+import { useState } from "react";
 import { Canvas } from "@react-three/fiber";
-import { OrbitControls } from "@react-three/drei";
 import ShopCanvas from "../components/canvas/ShopModel";
 import TvCanvas from "../components/canvas/TvCanvas";
 import TabletCanvas from "../components/canvas/TabletCanvas";
 import "../styles/shop.scss";
+import SideBar from "../components/SideBar";
+import ProductCanvas from "../components/canvas/ProductCanvas";
 
 function Shop() {
+  const [cameraPosition, setCameraPosition] = useState("default");
+  const camera = {
+    fov: 70,
+    near: 0.1,
+    far: 1000,
+    position: [5.3, 0.298, 0],
+    rotation: [2.73, 1.5, -2.73],
+  };
   return (
     <section className="shop">
-      <Canvas
-        style={{ background: "#d4d1d1" }}
-        frameloop="demand"
-        shadows
-        camera={{
-          position: [Math.PI / 2, 0, -Math.PI / 2],
-          fov: 35,
-        }}
-      >
-        <Suspense fallback={null}>
-          <ShopCanvas />
-          <TvCanvas />
-          <TabletCanvas />
-          <ambientLight intensity={2.5} />
-          <OrbitControls enableZoom={false} />
-        </Suspense>
+      <SideBar setCameraPosition={setCameraPosition} />
+      <Canvas camera={camera}>
+        <color attach="background" args={["#d4d1d1"]} />
+        <ShopCanvas cameraPosition={cameraPosition} />
+        <TvCanvas cameraPosition={cameraPosition} />
+        <TabletCanvas cameraPosition={cameraPosition} />
+        <ProductCanvas cameraPosition={cameraPosition} />
+        <ambientLight intensity={3} />
       </Canvas>
     </section>
   );
