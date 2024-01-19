@@ -10,7 +10,7 @@ function ActionProvider({ createChatBotMessage, setState, children }) {
   };
 
   const startBtn = () => {
-    const message = createChatBotMessage("Que recherchez-vous ?");
+    const message = createChatBotMessage("Bienvenue chez L'Oréal");
     updateState(message);
   };
 
@@ -81,36 +81,55 @@ function ActionProvider({ createChatBotMessage, setState, children }) {
       }));
     };
 
-    const handleNothing = () => {
-      const botMessage = createChatBotMessage("Really, bro ?");
+  const handleNothing = () => {
+    const botMessage = createChatBotMessage(
+      "Malheureusement, on ne possède pas ce genre de produit."
+    );
 
-      setState((prev) => ({
-        ...prev,
-        messages: [...prev.messages, botMessage],
-      }));
-    };
+    setState((prev) => ({
+      ...prev,
+      messages: [...prev.messages, botMessage],
+    }));
+  };
+  const handleComprehension = () => {
+    const botMessage = createChatBotMessage(
+      "Je suis désolé, je ne comprends pas votre demande."
+    );
 
-    return (
-      <div>
-        {React.Children.map(children, (child) => {
-          return React.cloneElement(child, {
-            actions: {
-              startBtn,
-              handleHello,
-              handleWhatColortype,
-              handleBlonde,
-              handleNotFound,
-            },
-            actions: {
-              startBtn,
-              handleHello,
-              handleMakeup,
-              handleLipstick,
-              handleNothing,
-            },
-          });
-        })}
-      </div>
+    setState((prev) => ({
+      ...prev,
+      messages: [...prev.messages, botMessage],
+    }));
+  };
+
+  const handleBye = () => {
+    const botMessage = endChatBotMessage("Revenir à l'écran principal");
+
+    setState((prev) => ({
+      ...prev,
+      messages: [...prev.messages, botMessage],
+    }));
+  };
+
+  return (
+    <div>
+      {React.Children.map(children, (child) => {
+        return React.cloneElement(child, {
+          actions: {
+            startBtn,
+            handleHello,
+            handleMakeup,
+            handleLipstick,
+            handleNothing,
+            handleComprehension,
+            handleBye,
+            handleWhatColortype,
+            handleBlonde,
+            handleNotFound,
+          },
+        });
+      })}
+    </div>
     );
   };
 }

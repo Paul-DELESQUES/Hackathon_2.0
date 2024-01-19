@@ -1,0 +1,31 @@
+.chatbot-container {
+  .chatbot {
+    background-color: transparent;
+    position: relative;
+  }
+  .react-chatbot-kit-chat-container {
+    width: 35%;
+    margin: 35%;
+    margin-top: 20rem;
+    background-color: white;
+    border-radius: 1rem;
+  }
+
+  .react-chatbot-kit-chat-header {
+    background: #376b7e;
+  }
+
+  .react-chatbot-kit-chat-bot-message {
+    margin-left: 0.1rem;
+    text-align: center;
+  }
+
+  .chatbot-head {
+    background: #376b7e;
+    width: 30%;
+    color: whitesmoke;
+    padding: 10px;
+    border-radius: 0.3rem;
+    font-size: 0.92rem;
+  }
+}
