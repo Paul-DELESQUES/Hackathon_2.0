@@ -2,6 +2,7 @@ import { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
 import axios from "axios";
 import "../styles/detailsProduct.scss";
+import ReturnProduct from "./ReturnProduct";
 
 function DetailProduct() {
   const [product, setProduct] = useState([]);
@@ -35,29 +36,32 @@ function DetailProduct() {
   }
 
   return (
-    <section className="details-section">
-      {imageSrc && <img src={imageSrc} alt={product.name} />}
-      <div className="details-parent-div">
-        <h1>Détails du produit</h1>
-        <h2>Description</h2>
-        <p>{product.description}</p>
-        <div className="grid-details-category">
-          <div>
-            <h2>Catégorie du produit</h2>
-            <p>
-              {product.category} {product.sub_cat}
-            </p>
+    <>
+      <ReturnProduct />
+      <section className="details-section">
+        {imageSrc && <img src={imageSrc} alt={product.name} />}
+        <div className="details-parent-div">
+          <h1>Détails du produit</h1>
+          <h2>Description</h2>
+          <p>{product.description}</p>
+          <div className="grid-details-category">
+            <div>
+              <h2>Catégorie du produit</h2>
+              <p>
+                {product.category} {product.sub_cat}
+              </p>
+            </div>
+            <div className="media-price-details">
+              <h2>Prix</h2>
+              <p>{product.price}€</p>
+            </div>
+            <button type="button" className="details-btn">
+              Ajouter au panier
+            </button>
           </div>
-          <div className="media-price-details">
-            <h2>Prix</h2>
-            <p>{product.price}€</p>
-          </div>
-          <button type="button" className="details-btn">
-            Ajouter au panier
-          </button>
         </div>
-      </div>
-    </section>
+      </section>
+    </>
   );
 }
 
