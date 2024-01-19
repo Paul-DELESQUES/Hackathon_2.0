@@ -74,5 +74,4 @@ export default function MessageParser({ children, actions }) {
     </div>
   );
 }
-
-
+  
