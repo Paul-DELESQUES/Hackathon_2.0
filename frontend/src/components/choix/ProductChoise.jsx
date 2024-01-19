@@ -1,42 +1,31 @@
-import React from "react";
-import "./productChoise.scss";
+/*eslint-disable */
+import React, { useEffect, useState } from "react";
+import axios from "axios";
+import { Link } from "react-router-dom";
 
 function ProductChoise() {
-  const options = [
-    {
-      text: "Parfum",
-      handler: () => {},
-      id: 1,
-    },
-    {
-      text: "carton",
-      handler: () => {},
-      id: 2,
-    },
-    {
-      text: "rouge à lèvre",
-      handler: () => {},
-      id: 3,
-    },
-    {
-      text: "lèvre",
-      handler: () => {},
-      id: 4,
-    },
-  ];
+  const [imageUrl, setImageUrl] = useState("");
 
-  const optionsMarkup = options.map((option) => (
-    <button
-      type="button"
-      className="learning-option-button"
-      key={option.id}
-      onClick={option.handler}
-    >
-      {" "}
-      {option.text}{" "}
-    </button>
-  ));
-  return <div className="learning-options-container">{optionsMarkup}</div>;
+  useEffect(() => {
+    axios
+      .get(`${import.meta.env.VITE_BACKEND_URL}/api/product/3`)
+      .then((response) => {
+        const result = response.data;
+        console.log(result);
+        setImageUrl(result.picture);
+      })
+      .catch((error) => {
+        console.error("Erreur de la récupération des produits:", error);
+      });
+  }, []);
+
+  return (
+    <div className="hairColor">
+      <Link to="/products/3">
+        <img className="hair" src={`${imageUrl}`} alt="blonde color" />
+      </Link>
+    </div>
+  );
 }
 
 export default ProductChoise;

@@ -15,5 +15,5 @@ CREATE TABLE product (
   quantity_unitary DECIMAL,
   quantity_total INT,
   color VARCHAR(50),
-  picture BLOB
+  picture TEXT
 );

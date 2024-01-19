@@ -2,8 +2,45 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  height: calc(100vh - 100px);
+  height: 100vh;
   h2 {
     font-size: 50px;
   }
+  &::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    // background: rgba(0, 0, 0, 0.7);
+    pointer-events: none;
+  }
+}
+
+.highlight-point {
+  position: absolute;
+  width: 20px;
+  height: 20px;
+  background-color: white;
+  border-radius: 50%;
+}
+
+.shop.no-opacity::after {
+  background: transparent;
+}
+
+#restartTuto {
+  width: 50px;
+  height: auto;
+  z-index: 999;
+  position: fixed;
+  cursor: pointer;
+  top: 20px;
+  right: 20px;
+  border-radius: 50%;
+  background: linear-gradient(145deg, #dbd2c7, #b9b0a7);
+  box-shadow:
+    20px 20px 60px #aea79e,
+    -20px -20px 60px #ece1d6;
 }

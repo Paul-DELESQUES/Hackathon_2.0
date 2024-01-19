@@ -7,8 +7,7 @@ function Navbar() {
     <nav>
       <Link to="/">Home</Link>
       <Link to="/products">Products</Link>
-      <Link to="/shop">Shop</Link>
-      <Link to="/survey">Questionnaire</Link>
+      <Link to="/survey">Abonnements</Link>
     </nav>
   );
 }
