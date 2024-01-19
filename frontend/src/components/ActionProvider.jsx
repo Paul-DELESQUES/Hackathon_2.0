@@ -29,8 +29,10 @@ function ActionProvider({ createChatBotMessage, setState, children }) {
       {
         widget: "hairColor",
       }
-      
-   const handleMakeup = () => {
+    );
+  };
+
+  const handleMakeup = () => {
     const botMessage = createChatBotMessage(
       "Voici une panoplie de maquillage qui pourrait vous intéresser!",
       {
@@ -58,21 +60,27 @@ function ActionProvider({ createChatBotMessage, setState, children }) {
   const handleNotFound = () => {
     const botMessage = createChatBotMessage(
       "Désolé, je n'ai pas compris votre question"
-
-  const handleLipstick = () => {
-    const botMessage = createChatBotMessage(
-      "Voici le rouge à lèvre de couleur violet qui pourrait vous intéresser!",
-      {
-        widget: "lipStick",
-      }
     );
 
     setState((prev) => ({
       ...prev,
       messages: [...prev.messages, botMessage],
     }));
-  };
-    
+
+    const handleLipstick = () => {
+      const botMessage = createChatBotMessage(
+        "Voici le rouge à lèvre de couleur violet qui pourrait vous intéresser!",
+        {
+          widget: "lipStick",
+        }
+      );
+
+      setState((prev) => ({
+        ...prev,
+        messages: [...prev.messages, botMessage],
+      }));
+    };
+
     const handleNothing = () => {
       const botMessage = createChatBotMessage("Really, bro ?");
 
@@ -82,22 +90,29 @@ function ActionProvider({ createChatBotMessage, setState, children }) {
       }));
     };
 
-  return (
-    <div>
-      {React.Children.map(children, (child) => {
-        return React.cloneElement(child, {
-          actions: {
-            startBtn,
-            handleHello,
-            handleWhatColortype,
-            handleBlonde,
-            handleNotFound,
-          },
-          actions: { startBtn, handleHello, handleMakeup, handleLipstick, handleNothing },
-        });
-      })}
-    </div>
-  );
+    return (
+      <div>
+        {React.Children.map(children, (child) => {
+          return React.cloneElement(child, {
+            actions: {
+              startBtn,
+              handleHello,
+              handleWhatColortype,
+              handleBlonde,
+              handleNotFound,
+            },
+            actions: {
+              startBtn,
+              handleHello,
+              handleMakeup,
+              handleLipstick,
+              handleNothing,
+            },
+          });
+        })}
+      </div>
+    );
+  };
 }
 
 export default ActionProvider;
