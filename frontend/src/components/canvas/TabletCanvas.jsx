@@ -2,12 +2,14 @@
 import { useEffect, useRef } from "react";
 import { GLTFLoader } from "three/examples/jsm/loaders/GLTFLoader";
 import { useThree } from "@react-three/fiber";
+import { useNavigate } from "react-router-dom";
 import gsap from "gsap";
 import PropTypes from "prop-types";
 
 function TabletCanvas({ cameraPosition }) {
   const tvRef = useRef();
   const { camera } = useThree();
+  const navigate = useNavigate();
 
   useEffect(() => {
     const loader = new GLTFLoader();
@@ -31,6 +33,9 @@ function TabletCanvas({ cameraPosition }) {
         x: 4.673,
         y: -6.269,
         z: -3.134,
+        onComplete: () => {
+          navigate("tablette");
+        },
       });
     }
   }, [cameraPosition]);

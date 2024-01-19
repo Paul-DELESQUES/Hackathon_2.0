@@ -11,7 +11,7 @@ import ProductCanvas from "../components/canvas/ProductCanvas";
 function Shop() {
   const [cameraPosition, setCameraPosition] = useState("default");
   const camera = {
-    fov: 70,
+    fov: 45,
     near: 0.1,
     far: 1000,
     position: [5.3, 0.298, 0],

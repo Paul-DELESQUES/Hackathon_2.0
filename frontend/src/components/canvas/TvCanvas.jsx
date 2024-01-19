@@ -3,11 +3,13 @@ import { useThree } from "@react-three/fiber";
 import gsap from "gsap";
 import { useEffect, useRef } from "react";
 import { GLTFLoader } from "three/examples/jsm/loaders/GLTFLoader";
+import { useNavigate } from "react-router-dom";
 import PropTypes from "prop-types";
 
 function TvCanvas({ cameraPosition }) {
   const tvRef = useRef();
   const { camera } = useThree();
+  const navigate = useNavigate();
 
   useEffect(() => {
     const loader = new GLTFLoader();
@@ -31,6 +33,9 @@ function TvCanvas({ cameraPosition }) {
         x: 2.99,
         y: 3.12,
         z: -3.13,
+        onComplete: () => {
+          navigate("survey");
+        },
       });
     }
   }, [cameraPosition]);
