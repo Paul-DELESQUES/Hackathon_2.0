@@ -5,7 +5,8 @@ import ProductChoiceLipstick from "./choix/ProductChoiceLipstick";
 import ChatStart from "./ChatStart";
 import ProductChoiceHairCol from "./choix/ProductChoiceHairCol";
 
-const botName = "Loréal";
+
+const botName = "Botéal";
 const config = {
   initialMessages: [
     createChatBotMessage(`Bonjour! je suis ${botName}`, {
@@ -17,11 +18,11 @@ const config = {
       backgroundColor: "#376B7E",
     },
     chatButton: {
-      backgroundColor: "#5ccc9d",
+      backgroundColor: "#396d57",
     },
 
     widget: {
-      width: "3px",
+      width: "30px",
     },
   },
 
