@@ -31,17 +31,16 @@ const config = {
       widgetFunc: (props) => <ChatStart {...props} />,
     },
     {
-<<<<<<< HEAD
       widgetName: "blonde",
       widgetFunc: (props) => <ProductChoise {...props} />,
-=======
+    },
+    {
       widgetName: "makeUp",
       widgetFunc: (props) => <ProductChoiceMakeup {...props} />,
     },
     {
       widgetName: "lipStick",
       widgetFunc: (props) => <ProductChoiceLipstick {...props} />,
->>>>>>> dev
     },
     {
       widgetName: "hairColor",
