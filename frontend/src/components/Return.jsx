@@ -5,7 +5,7 @@ function Return() {
   return (
     <Link to="/">
       {/* eslint-disable-next-line */}
-      <button type="button">
+      <button type="button" className="button">
         <div>
           <span>
             <svg viewBox="0 0 46 40" xmlns="http://www.w3.org/2000/svg">
