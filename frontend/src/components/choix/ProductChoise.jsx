@@ -22,7 +22,7 @@ function ProductChoise() {
   return (
     <div className="hairColor">
       <Link to="/products/3">
-        <img className="hair" src={imageUrl} alt="haircolort" />
+        <img className="hair" src={`${imageUrl}`} alt="blonde color" />
       </Link>
     </div>
   );

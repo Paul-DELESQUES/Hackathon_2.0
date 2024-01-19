@@ -60,16 +60,16 @@ function ProductChoiceMakeup() {
 
   return (
     <div className="productmakeup">
-      <Link to="/products/27">
+      <Link to="/produits/27">
         <img className="lolo" src={`${imageUrl}`} alt="a makeup tool" />
       </Link>
-      <Link to="/products/17">
+      <Link to="/produits/17">
         <img className="lolo" src={`${imageUrl1}`} alt="a makeup tool" />
       </Link>
-      <Link to="/products/13">
+      <Link to="/produits/13">
         <img className="lolo" src={`${imageUrl2}`} alt="a makeup tool" />
       </Link>
-      <Link to="/products/23">
+      <Link to="/produits/23">
         <img className="lolo" src={`${imageUrl3}`} alt="a makeup tool" />
       </Link>
     </div>

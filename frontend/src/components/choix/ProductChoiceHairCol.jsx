@@ -59,18 +59,18 @@ function ProductChoiceHairCol() {
   }, []);
 
   return (
-    <div className="hairColor">
+    <div className="productmakeup">
       <Link to="/products/3">
-        <img className="hair" src={`${imageUrl}`} alt="hair color" />
+        <img className="lolo" src={`${imageUrl}`} alt="hair type" />
       </Link>
       <Link to="/products/8">
-        <img className="hair" src={`${imageUrl1}`} alt="hair color" />
+        <img className="lolo" src={`${imageUrl1}`} alt="colorisation" />
       </Link>
       <Link to="/products/31">
-        <img className="hair" src={`${imageUrl2}`} alt="hair color" />
+        <img className="lolo" src={`${imageUrl2}`} alt="shampoing" />
       </Link>
       <Link to="/products/10">
-        <img className="hair" src={`${imageUrl3}`} alt="hair color" />
+        <img className="lolo" src={`${imageUrl3}`} alt="crème" />
       </Link>
     </div>
   );

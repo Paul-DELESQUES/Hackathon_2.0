@@ -10,7 +10,7 @@ function ActionProvider({ createChatBotMessage, setState, children }) {
   };
 
   const startBtn = () => {
-    const message = createChatBotMessage("Bienvenue chez L'Oréal");
+    const message = createChatBotMessage("Que recherchez-vous ?");
     updateState(message);
   };
 
@@ -21,15 +21,6 @@ function ActionProvider({ createChatBotMessage, setState, children }) {
       ...prev,
       messages: [...prev.messages, botMessage],
     }));
-  };
-
-  const handleWhatColortype = () => {
-    const botMessage = createChatBotMessage(
-      "Voici ce que j'ai à vous proposez",
-      {
-        widget: "hairColor",
-      }
-    );
   };
 
   const handleMakeup = () => {
@@ -46,44 +37,23 @@ function ActionProvider({ createChatBotMessage, setState, children }) {
     }));
   };
 
-  const handleBlonde = () => {
-    const botMessage = createChatBotMessage("couleur de cheveux!", {
-      widget: "blonde",
-    });
-
-    setState((prev) => ({
-      ...prev,
-      messages: [...prev.messages, botMessage],
-    }));
-  };
-
-  const handleNotFound = () => {
+  const handleLipstick = () => {
     const botMessage = createChatBotMessage(
-      "Désolé, je n'ai pas compris votre question"
+      "Voici le rouge à lèvre de couleur violet qui pourrait vous intéresser!",
+      {
+        widget: "lipStick",
+      }
     );
 
     setState((prev) => ({
       ...prev,
       messages: [...prev.messages, botMessage],
     }));
-
-    const handleLipstick = () => {
-      const botMessage = createChatBotMessage(
-        "Voici le rouge à lèvre de couleur violet qui pourrait vous intéresser!",
-        {
-          widget: "lipStick",
-        }
-      );
-
-      setState((prev) => ({
-        ...prev,
-        messages: [...prev.messages, botMessage],
-      }));
-    };
+  };
 
   const handleNothing = () => {
     const botMessage = createChatBotMessage(
-      "Malheureusement, on ne possède pas ce genre de produit."
+      "Malheureusement, nous n'avons pas ce genre de produits."
     );
 
     setState((prev) => ({
@@ -91,9 +61,13 @@ function ActionProvider({ createChatBotMessage, setState, children }) {
       messages: [...prev.messages, botMessage],
     }));
   };
-  const handleComprehension = () => {
+
+  const handleWhatType = () => {
     const botMessage = createChatBotMessage(
-      "Je suis désolé, je ne comprends pas votre demande."
+      "Voici ce que j'ai à vous proposez",
+      {
+        widget: "hairColor",
+      }
     );
 
     setState((prev) => ({
@@ -102,8 +76,10 @@ function ActionProvider({ createChatBotMessage, setState, children }) {
     }));
   };
 
-  const handleBye = () => {
-    const botMessage = endChatBotMessage("Revenir à l'écran principal");
+  const handleBlonde = () => {
+    const botMessage = createChatBotMessage("Une belle couleur de cheveux!", {
+      widget: "Blonde",
+    });
 
     setState((prev) => ({
       ...prev,
@@ -121,17 +97,13 @@ function ActionProvider({ createChatBotMessage, setState, children }) {
             handleMakeup,
             handleLipstick,
             handleNothing,
-            handleComprehension,
-            handleBye,
-            handleWhatColortype,
+            handleWhatType,
             handleBlonde,
-            handleNotFound,
           },
         });
       })}
     </div>
-    );
-  };
+  );
 }
 
 export default ActionProvider;
