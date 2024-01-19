@@ -86,7 +86,7 @@ function MessageParser({ children, actions }) {
     }
   };
 
-   return (
+  return (
     <div className="chatbot-container">
       <div className="chatbot">
         {React.Children.map(children, (child) => {
@@ -97,7 +97,7 @@ function MessageParser({ children, actions }) {
         })}
       </div>
     </div>
-    );
-  };
+  );
 }
+
 export default MessageParser;
