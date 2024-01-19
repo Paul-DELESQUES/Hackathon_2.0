@@ -12,8 +12,6 @@ function MessageParser({ children, actions }) {
     ) {
       actions.handleHello();
     }
-<<<<<<< HEAD
-
     if (
       message.includes("hair") ||
       message.includes("cheveux") ||
@@ -39,7 +37,6 @@ function MessageParser({ children, actions }) {
       message.includes("piscine")
     ) {
       actions.handleNotFound();
-=======
     if (
       message.includes("makeup") ||
       message.includes("maquillage") ||
@@ -63,7 +60,6 @@ function MessageParser({ children, actions }) {
       message.includes("jambon")
     ) {
       actions.handleNothing();
->>>>>>> dev
     }
   };
 
