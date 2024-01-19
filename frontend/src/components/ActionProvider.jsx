@@ -23,19 +23,17 @@ function ActionProvider({ createChatBotMessage, setState, children }) {
     }));
   };
 
-<<<<<<< HEAD
   const handleWhatColortype = () => {
     const botMessage = createChatBotMessage(
       "Voici ce que j'ai à vous proposez",
       {
         widget: "hairColor",
-=======
+        
   const handleMakeup = () => {
     const botMessage = createChatBotMessage(
       "Voici une panoplie de maquillage qui pourrait vous intéresser!",
       {
         widget: "makeUp",
->>>>>>> dev
       }
     );
 
@@ -45,7 +43,6 @@ function ActionProvider({ createChatBotMessage, setState, children }) {
     }));
   };
 
-<<<<<<< HEAD
   const handleBlonde = () => {
     const botMessage = createChatBotMessage("couleur de cheveux!", {
       widget: "blonde",
@@ -60,7 +57,6 @@ function ActionProvider({ createChatBotMessage, setState, children }) {
   const handleNotFound = () => {
     const botMessage = createChatBotMessage(
       "Désolé, je n'ai pas compris votre question"
-=======
 
   const handleLipstick = () => {
     const botMessage = createChatBotMessage(
@@ -68,7 +64,6 @@ function ActionProvider({ createChatBotMessage, setState, children }) {
       {
         widget: "lipStick",
       }
->>>>>>> dev
     );
 
     setState((prev) => ({
@@ -76,9 +71,7 @@ function ActionProvider({ createChatBotMessage, setState, children }) {
       messages: [...prev.messages, botMessage],
     }));
   };
-
-<<<<<<< HEAD
-=======
+    
     const handleNothing = () => {
       const botMessage = createChatBotMessage("Really, bro ?");
 
@@ -88,12 +81,10 @@ function ActionProvider({ createChatBotMessage, setState, children }) {
       }));
     };
 
->>>>>>> dev
   return (
     <div>
       {React.Children.map(children, (child) => {
         return React.cloneElement(child, {
-<<<<<<< HEAD
           actions: {
             startBtn,
             handleHello,
@@ -101,9 +92,7 @@ function ActionProvider({ createChatBotMessage, setState, children }) {
             handleBlonde,
             handleNotFound,
           },
-=======
           actions: { startBtn, handleHello, handleMakeup, handleLipstick, handleNothing },
->>>>>>> dev
         });
       })}
     </div>
