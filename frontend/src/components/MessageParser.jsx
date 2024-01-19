@@ -75,3 +75,4 @@ function MessageParser({ children, actions }) {
     );
   };
 }
+export default MessageParser;
