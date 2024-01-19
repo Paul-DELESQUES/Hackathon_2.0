@@ -21,8 +21,12 @@ function ProductChoise() {
 
   return (
     <div className="productmakeup">
-      <Link to="/products/15">
-      <img className="lolo" src={`${imageUrl}`} alt="un rouge à lèvres de couleur violet" />
+      <Link to="/produits/15">
+        <img
+          className="lolo"
+          src={`${imageUrl}`}
+          alt="un rouge à lèvres de couleur violet"
+        />
       </Link>
     </div>
   );

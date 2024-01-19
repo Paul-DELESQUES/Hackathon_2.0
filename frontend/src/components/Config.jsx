@@ -5,7 +5,6 @@ import ProductChoiceLipstick from "./choix/ProductChoiceLipstick";
 import ChatStart from "./ChatStart";
 import ProductChoiceHairCol from "./choix/ProductChoiceHairCol";
 
-
 const botName = "Botéal";
 const config = {
   initialMessages: [
@@ -32,7 +31,7 @@ const config = {
       widgetFunc: (props) => <ChatStart {...props} />,
     },
     {
-      widgetName: "blonde",
+      widgetName: "Blonde",
       widgetFunc: (props) => <ProductChoise {...props} />,
     },
     {

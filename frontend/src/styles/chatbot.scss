@@ -2,6 +2,7 @@
   .chatbot {
     background-color: transparent;
     position: relative;
+    z-index: 3;
   }
   .react-chatbot-kit-chat-container {
     width: 35%;
