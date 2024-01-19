@@ -10,7 +10,6 @@ import Survey from "./components/Survey";
 import Error from "./pages/Error";
 import DetailsProduct from "./pages/DetailsProduct";
 
-
 const router = createBrowserRouter([
   {
     path: "/",
