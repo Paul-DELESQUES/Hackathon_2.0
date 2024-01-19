@@ -15,7 +15,7 @@ function ActionProvider({ createChatBotMessage, setState, children }) {
   };
 
   const handleHello = () => {
-    const botMessage = createChatBotMessage("Hello. Nice to meet you.");
+    const botMessage = createChatBotMessage("Bonjour. Que voulez-vous ?");
 
     setState((prev) => ({
       ...prev,
@@ -23,12 +23,34 @@ function ActionProvider({ createChatBotMessage, setState, children }) {
     }));
   };
 
-  const handleDog = () => {
+  const handleWhatColortype = () => {
     const botMessage = createChatBotMessage(
-      "Here's a nice dog picture for you!",
+      "Voici ce que j'ai à vous proposez",
       {
-        widget: "dogPicture",
+        widget: "hairColor",
       }
+    );
+
+    setState((prev) => ({
+      ...prev,
+      messages: [...prev.messages, botMessage],
+    }));
+  };
+
+  const handleBlonde = () => {
+    const botMessage = createChatBotMessage("couleur de cheveux!", {
+      widget: "blonde",
+    });
+
+    setState((prev) => ({
+      ...prev,
+      messages: [...prev.messages, botMessage],
+    }));
+  };
+
+  const handleNotFound = () => {
+    const botMessage = createChatBotMessage(
+      "Désolé, je n'ai pas compris votre question"
     );
 
     setState((prev) => ({
@@ -41,7 +63,13 @@ function ActionProvider({ createChatBotMessage, setState, children }) {
     <div>
       {React.Children.map(children, (child) => {
         return React.cloneElement(child, {
-          actions: { startBtn, handleHello, handleDog },
+          actions: {
+            startBtn,
+            handleHello,
+            handleWhatColortype,
+            handleBlonde,
+            handleNotFound,
+          },
         });
       })}
     </div>

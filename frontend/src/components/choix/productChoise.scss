@@ -12,3 +12,13 @@
   margin: 0.2rem;
   font-size: 0.88rem;
 }
+.hairColor {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  .hair {
+    width: 150px;
+    height: 150px;
+  }
+}

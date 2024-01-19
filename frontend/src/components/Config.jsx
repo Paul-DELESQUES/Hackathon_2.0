@@ -2,6 +2,7 @@
 import { createChatBotMessage } from "react-chatbot-kit";
 import ProductChoise from "./choix/ProductChoise";
 import ChatStart from "./ChatStart";
+import ProductChoiceHairCol from "./choix/ProductChoiceHairCol";
 
 const botName = "LOr&Al";
 const config = {
@@ -29,8 +30,12 @@ const config = {
       widgetFunc: (props) => <ChatStart {...props} />,
     },
     {
-      widgetName: "dogPicture",
+      widgetName: "blonde",
       widgetFunc: (props) => <ProductChoise {...props} />,
+    },
+    {
+      widgetName: "hairColor",
+      widgetFunc: (props) => <ProductChoiceHairCol {...props} />,
     },
   ],
 };
