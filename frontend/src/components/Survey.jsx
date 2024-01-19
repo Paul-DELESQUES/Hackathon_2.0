@@ -132,27 +132,15 @@ const json = {
             },
             {
               value: "Item 2",
-              text: "Fond de Teint",
-            },
-            {
-              value: "Item 3",
               text: "Mascara",
             },
             {
-              value: "Item 4",
-              text: "Eyeliners",
-            },
-            {
-              value: "Item 5",
-              text: "Ombre à paupières",
-            },
-            {
-              value: "Item 6",
+              value: "Item 3",
               text: "Vernis à ongles",
             },
             {
-              value: "Item 7",
-              text: "Crayons",
+              value: "Item 4",
+              text: "Fond de teint",
             },
           ],
         },
@@ -168,11 +156,15 @@ const json = {
             },
             {
               value: "Item 2",
-              text: "Plusieurs fois par semaine",
+              text: "2 à 3 fois par semaine",
             },
             {
               value: "Item 3",
               text: "Une fois par semaine",
+            },
+            {
+              value: "Item 4",
+              text: "Je fais des semaines sans",
             },
           ],
         },
@@ -198,61 +190,29 @@ const json = {
               value: "Item 4",
               text: "Plus de 20 minutes",
             },
-            {
-              value: "Item 5",
-              text: "Plus de 21 minutes",
-            },
-          ],
-        },
-        {
-          type: "dropdown",
-          name: "question3",
-          title: "A quelle fréquence achetez-vous de nouveaux produits ?",
-          choices: [
-            {
-              value: "Item 1",
-              text: "Chaque semaine",
-            },
-            {
-              value: "Item 2",
-              text: "Chaque mois",
-            },
-            {
-              value: "Item 3",
-              text: "Tous les trois mois",
-            },
-            {
-              value: "Item 4",
-              text: "Tous les six mois",
-            },
-            {
-              value: "Item 5",
-              text: "Chaque année",
-            },
           ],
         },
         {
           type: "tagbox",
           name: "Produits_Soins_Femme",
-          title:
-            "Quels types de produits de soins de la peau utilisez-vous régulièrement ?",
+          title: "Quels types de produits utilisez-vous régulièrement ?",
           isRequired: true,
           choices: [
             {
               value: "Item 1",
-              text: "Crème soin de nuit",
+              text: "Crème jour/nuit",
             },
             {
               value: "Item 2",
-              text: "Crème soin de jour",
+              text: "Laque",
             },
             {
               value: "Item 3",
-              text: "Masques",
+              text: "Coloration",
             },
             {
               value: "Item 4",
-              text: "Gommage",
+              text: "Shampoing",
             },
           ],
         },
@@ -273,6 +233,10 @@ const json = {
             {
               value: "Item 3",
               text: "Une fois par semaine",
+            },
+            {
+              value: "Item 4",
+              text: "Je fais des semaines sans",
             },
           ],
         },
@@ -310,7 +274,8 @@ const json = {
         {
           type: "dropdown",
           name: "question1",
-          title: "Quelles sont vos critères pour choisir vos produits ?",
+          title:
+            "Quel est le critère principal dans la sélection de vos produits ?",
           choices: [
             {
               value: "Item 1",
@@ -348,37 +313,6 @@ const json = {
               value: "Item 4",
               text: "Plus de 20 minutes",
             },
-            {
-              value: "Item 5",
-              text: "Plus de 21 minutes",
-            },
-          ],
-        },
-        {
-          type: "dropdown",
-          name: "question5",
-          title: "A quelle fréquence achetez-vous de nouveaux produits ?",
-          choices: [
-            {
-              value: "Item 1",
-              text: "Chaque semaine",
-            },
-            {
-              value: "Item 2",
-              text: "Chaque mois",
-            },
-            {
-              value: "Item 3",
-              text: "Tous les trois mois",
-            },
-            {
-              value: "Item 4",
-              text: "Tous les six mois",
-            },
-            {
-              value: "Item 5",
-              text: "Chaque année",
-            },
           ],
         },
         {
@@ -398,25 +332,6 @@ const json = {
             {
               value: "Item 3",
               text: "Une fois par semaine",
-            },
-          ],
-        },
-        {
-          type: "dropdown",
-          name: "question7",
-          title: "Quelles sont vos critères pour choisir vos produits ?",
-          choices: [
-            {
-              value: "Item 1",
-              text: "Prix",
-            },
-            {
-              value: "Item 2",
-              text: "Ingrédients",
-            },
-            {
-              value: "Item 3",
-              text: "Recommandations",
             },
           ],
         },
