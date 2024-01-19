@@ -10,28 +10,28 @@ function SideBar({ setCameraPosition }) {
         className="sidebar-btn"
         onClick={() => setCameraPosition("default")}
       >
-        Home
+        Accueil
       </button>
       <button
         type="button"
         className="sidebar-btn"
         onClick={() => setCameraPosition("tv")}
       >
-        tv
+        TV
       </button>
       <button
         type="button"
         className="sidebar-btn"
         onClick={() => setCameraPosition("tablet")}
       >
-        tablette
+        Tablette
       </button>
       <button
         type="button"
         className="sidebar-btn"
         onClick={() => setCameraPosition("prod")}
       >
-        products
+        Produits
       </button>
     </nav>
   );

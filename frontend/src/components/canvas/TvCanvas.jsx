@@ -34,7 +34,7 @@ function TvCanvas({ cameraPosition }) {
         y: 3.12,
         z: -3.13,
         onComplete: () => {
-          navigate("survey");
+          navigate("sondage");
         },
       });
     }

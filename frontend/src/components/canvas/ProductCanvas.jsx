@@ -22,7 +22,7 @@ function ProductCanvas({ cameraPosition }) {
         y: -5.312,
         z: -4.703,
         onComplete: () => {
-          navigate("products");
+          navigate("produits");
         },
       });
     }
